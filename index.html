@@ -10,10 +10,15 @@
     <meta property="og:description" content="Thoughtful websites, apps, AI agents, and digital systems for ambitious businesses." />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
     <title>TellaMind — Intelligence that moves your business forward</title>
     <script>
       try {
+        const pagesRedirect = sessionStorage.getItem('gh-pages-redirect');
+        if (pagesRedirect && pagesRedirect.startsWith('%BASE_URL%')) {
+          sessionStorage.removeItem('gh-pages-redirect');
+          history.replaceState(null, '', pagesRedirect);
+        }
         const savedTheme = localStorage.getItem('tellamind-theme');
         document.documentElement.dataset.theme = savedTheme === 'light' ? 'light' : 'dark';
         document.documentElement.style.colorScheme = savedTheme === 'light' ? 'light' : 'dark';
@@ -22,7 +27,7 @@
           const heroImage = document.createElement('link');
           heroImage.rel = 'preload';
           heroImage.as = 'image';
-          heroImage.href = '/Golden_AI_tellamind.avif';
+          heroImage.href = '%BASE_URL%Golden_AI_tellamind.avif';
           heroImage.type = 'image/avif';
           heroImage.fetchPriority = 'high';
           document.head.append(heroImage);

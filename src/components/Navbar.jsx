@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { ArrowUpRight, ChevronDown, Menu, Moon, Sun, X } from 'lucide-react';
 import { services } from '../data.js';
+import { publicAsset } from '../utils/publicAsset.js';
 
 function readTheme() {
   try {
@@ -27,7 +28,7 @@ function applyTheme(theme) {
 function Logo() {
   return (
     <Link className="logo" to="/" aria-label="TellaMind home">
-      <img className="logo-mark-img" src="/tellamind-mark.svg" alt="" />
+      <img className="logo-mark-img" src={publicAsset('tellamind-mark.svg')} alt="" />
       <span>
         Tella<span className="logo-light">Mind</span>
       </span>

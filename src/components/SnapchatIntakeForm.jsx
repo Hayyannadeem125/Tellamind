@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
@@ -60,7 +61,7 @@ export function SnapchatIntakeForm() {
       <label className="snap-intake-wide">Anything else we should know? <span className="optional">Optional</span><textarea name="notes" rows="3" placeholder="Share your goals or questions. Please do not include passwords, login codes, or private account credentials."/></label>
     </div>
     <label className="snap-intake-check"><input type="checkbox" name="age18Plus" value="Yes"/><span>I am 18 or older. <small>This helps us assess monetization readiness; it is not a Snap Star verification rule.</small></span></label>
-    <label className="snap-intake-check"><input type="checkbox" name="privacyConsent" value="Yes" required/><span>I agree TellaMind may use these details to respond to this request. Read our <a href="/privacy">Privacy Policy</a>.</span></label>
+    <label className="snap-intake-check"><input type="checkbox" name="privacyConsent" value="Yes" required/><span>I agree TellaMind may use these details to respond to this request. Read our <Link to="/privacy">Privacy Policy</Link>.</span></label>
     <div className="snap-intake-submit"><button className="button button-dark" type="submit" disabled={state.status === 'sending'}>{state.status === 'sending' ? 'Preparing…' : 'Request my readiness review'} <ArrowRight size={15}/></button><p className={`snap-intake-status ${state.status}`} role="status" aria-live="polite">{state.message || (endpoint ? 'Your details will be sent through our configured contact form.' : 'This form opens your email app so you can review and send your request.')}</p></div>
     <p className="snap-intake-disclaimer">This is a request for TellaMind’s preparation support, not an application submitted to Snapchat. We do not need your password or login codes, and we cannot guarantee verification, an invitation, or earnings.</p>
   </form>;

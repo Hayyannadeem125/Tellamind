@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { services } from '../data.js';
 
 const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
@@ -112,7 +113,7 @@ export function ServiceInquiryForm({ serviceSlug }) {
         <label className="service-inquiry-field service-inquiry-timeline">Desired timeframe <select name="timeframe" defaultValue=""><option value="">Not sure yet</option><option>As soon as possible</option><option>Within 1–3 months</option><option>In 3+ months</option></select></label>
         <button className="button button-dark" type="submit" disabled={state.status === 'sending'}>{state.status === 'sending' ? 'Preparing…' : 'Send project inquiry'} <ArrowRight size={15}/></button>
       </div>
-      <label className="service-inquiry-consent"><input type="checkbox" name="privacyConsent" value="Yes" required/><span>TellaMind may use these details to respond to my inquiry. Read the <a href="/privacy">Privacy Policy</a>.</span></label>
+      <label className="service-inquiry-consent"><input type="checkbox" name="privacyConsent" value="Yes" required/><span>TellaMind may use these details to respond to my inquiry. Read the <Link to="/privacy">Privacy Policy</Link>.</span></label>
       <p className={`service-inquiry-status ${state.status}`} role="status" aria-live="polite">{state.message || (endpoint ? 'Submitted securely through our configured contact form.' : 'Your email app opens so you can review and send this inquiry.')}</p>
     </form>
   </section>;

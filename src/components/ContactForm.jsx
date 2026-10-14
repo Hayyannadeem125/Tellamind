@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { services } from '../data.js';
 
 const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
@@ -36,7 +37,7 @@ export function ContactForm() {
     <label>What can we help with?<select defaultValue={initialService} required name="service"><option value="" disabled>Select a service</option>{services.map((service) => <option key={service.slug} value={service.title}>{service.title}</option>)}<option value="Something else">Something else</option></select></label>
     <div className="form-row"><label>Approximate budget <span className="optional">Optional</span><select name="budget" defaultValue=""><option value="">Not sure yet</option><option>Under $2,500</option><option>$2,500–$5,000</option><option>$5,000–$10,000</option><option>$10,000+</option></select></label><label>Desired timeframe <span className="optional">Optional</span><select name="timeframe" defaultValue=""><option value="">Not sure yet</option><option>As soon as possible</option><option>Within 1–3 months</option><option>In 3+ months</option></select></label></div>
     <label>A little about the project<textarea required name="message" rows="4" placeholder="What do you want to build or improve?" /></label>
-    <label className="privacy-consent"><input type="checkbox" name="privacyConsent" required /><span>I agree that TellaMind may use these details to respond to my inquiry. Read the <a href="/privacy">Privacy Policy</a>.</span></label>
+    <label className="privacy-consent"><input type="checkbox" name="privacyConsent" required /><span>I agree that TellaMind may use these details to respond to my inquiry. Read the <Link to="/privacy">Privacy Policy</Link>.</span></label>
     <button className="button button-dark" type="submit" disabled={state.status === 'sending'}>{state.status === 'sending' ? 'Sending…' : 'Send project inquiry'} <ArrowRight size={15} /></button>
     <p className={`form-status ${state.status}`} role="status" aria-live="polite">{state.message || (endpoint ? 'Your details are sent securely through our configured contact form.' : 'This form uses your email app until a form service is configured.')}</p>
   </form>;

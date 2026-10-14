@@ -63,7 +63,7 @@ function ScrollAndTitle() {
 }
 
 function App() {
-  return <BrowserRouter>
+  return <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || '/'}>
     <ScrollAndTitle />
     <Navbar/>
     <main id="main-content">
