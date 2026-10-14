@@ -87,7 +87,7 @@ The public Team page keeps its existing design. To manage profiles without a dat
 4. Open **Team members**. Add, edit, publish, unpublish, or delete profiles there. Upload photos through the **Profile photo** field.
 5. Confirm the hosting provider is connected to the same GitHub repository and deploys commits to the production branch. Vercel can do this through its Git integration.
 
-Keep the GitHub repository private and grant access only to people who should edit the site. Only publish team details and photos that are approved for the public website. The current `/admin` page is the older Supabase editor; Pages CMS is a separate portal at `app.pagescms.org`. Existing published Supabase profiles remain visible until at least one Pages CMS profile is published; then the Pages CMS profiles become the Team page source. Copy any existing profiles into Pages CMS before switching over if you need to retain them.
+Keep the GitHub repository private and grant access only to people who should edit the site. Only publish team details and photos that are approved for the public website. Team profiles are read from the Pages CMS-managed files at build time; the site does not connect to a database. There is no `/admin` login page—the editor is the separate Pages CMS portal at `app.pagescms.org`. Copy any existing team profiles from the old database into Pages CMS before switching over if you need to retain them.
 
 ## SEO launch checklist
 

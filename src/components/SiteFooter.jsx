@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, LockKeyhole } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Logo } from './Navbar.jsx';
 
 const socialLinks = [
@@ -23,6 +23,6 @@ export function SiteFooter() {
       <div className="footer-col"><b>Get in touch</b><a href="mailto:tellamindwork@gmail.com">Email us</a><a href="https://wa.me/923324277277" target="_blank" rel="noreferrer">WhatsApp</a><Link to="/contact">Request a meeting</Link><div className="footer-socials" aria-label="TellaMind social media profiles">{socialLinks.map(({ label, url, mark }) => url ? <a className="footer-social-link" key={label} href={url} target="_blank" rel="noopener noreferrer" aria-label={`TellaMind on ${label}`} title={label}><SocialMark mark={mark}/></a> : <span className="footer-social-link is-unconfigured" key={label} role="img" aria-label={`${label} profile link not configured`} title={`${label} profile URL not configured`}><SocialMark mark={mark}/></span>)}</div></div>
       <div className="footer-col footer-news"><b>A good idea starts somewhere.</b><p>Tell us what you’re working on. We’d love to hear about it.</p><Link className="text-link" to="/contact">Start a conversation <ArrowRight size={14}/></Link></div>
     </div>
-    <div className="footer-bottom"><span>© {new Date().getFullYear()} TellaMind. All rights reserved.</span><span>Michigan, USA · Serving clients worldwide</span><div><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link><Link className="footer-admin-link" to="/admin" aria-label="Admin sign in" title="Admin sign in"><LockKeyhole size={13}/></Link></div></div>
+    <div className="footer-bottom"><span>© {new Date().getFullYear()} TellaMind. All rights reserved.</span><span>Michigan, USA · Serving clients worldwide</span><div><Link to="/privacy">Privacy</Link><Link to="/terms">Terms</Link></div></div>
   </div></footer>;
 }

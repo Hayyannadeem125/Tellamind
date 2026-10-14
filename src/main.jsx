@@ -14,7 +14,6 @@ const ProcessPage = React.lazy(() => import('./pages/ProcessPage.jsx').then((mod
 const ContactPage = React.lazy(() => import('./pages/ContactPage.jsx').then((module) => ({ default: module.ContactPage })));
 const LegalPage = React.lazy(() => import('./pages/LegalPage.jsx').then((module) => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage.jsx').then((module) => ({ default: module.NotFoundPage })));
-const AdminTeamPage = React.lazy(() => import('./pages/AdminTeamPage.jsx').then((module) => ({ default: module.AdminTeamPage })));
 import { serviceSlug, projectSlug } from './data.js';
 import './styles.css';
 import './theme-light-1.css';
@@ -25,11 +24,6 @@ function ScrollAndTitle() {
     window.scrollTo({ top: 0, behavior: 'auto' });
     const title = document.querySelector('main h1')?.textContent?.trim();
     document.title = `${title || 'Digital studio'} | TellaMind`;
-    let adminRobots = document.querySelector('#tellamind-admin-robots');
-    if (pathname === '/admin') {
-      if (!adminRobots) { adminRobots = document.createElement('meta'); adminRobots.id = 'tellamind-admin-robots'; adminRobots.name = 'robots'; document.head.append(adminRobots); }
-      adminRobots.content = 'noindex,nofollow';
-    } else adminRobots?.remove();
     const descriptions = {
       '/': 'TellaMind builds thoughtful websites, apps, AI agents, and automations for ambitious businesses worldwide.',
       '/services': 'Explore TellaMind services: AI automation, websites, apps, social media, SEO, and digital launch support.',
@@ -82,7 +76,6 @@ function App() {
           <Route path="/work/:slug" element={<ProjectDetailPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/team" element={<TeamPage />} />
-          <Route path="/admin" element={<AdminTeamPage />} />
           <Route path="/how-we-work" element={<ProcessPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<LegalPage kind="privacy" />} />

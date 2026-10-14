@@ -1,5 +1,4 @@
 import React from 'react';
-import { listPublicTeam, teamCmsConfigured } from '../lib/teamCms.js';
 
 const teamFiles = import.meta.glob('../content/team-members/*.json', {
   eager: true,
@@ -15,18 +14,10 @@ const pagesCmsMembers = Object.entries(teamFiles)
   .sort((a, b) => (Number(a.sort_order) || 0) - (Number(b.sort_order) || 0) || a.name.localeCompare(b.name));
 
 export function TeamMembers() {
-  const [members, setMembers] = React.useState(pagesCmsMembers);
-  React.useEffect(() => {
-    // Keep already-published Supabase profiles visible until the first Pages CMS
-    // profiles are published. Once Pages CMS has published entries, it is the
-    // source of truth and no Supabase request is needed.
-    if (pagesCmsMembers.length || !teamCmsConfigured) return;
-    listPublicTeam().then(setMembers).catch(() => setMembers([]));
-  }, []);
-  if (!members.length) return null;
+  if (!pagesCmsMembers.length) return null;
   return <section className="team-members section-wrap">
     <header><span>MEET THE PEOPLE</span><h2>The people behind <em>the work.</em></h2></header>
-    <div className="team-member-grid">{members.map((member) => <article className="team-member-card" key={member.id}>
+    <div className="team-member-grid">{pagesCmsMembers.map((member) => <article className="team-member-card" key={member.id}>
       {member.photo_url ? <img src={member.photo_url} alt={member.name} loading="lazy"/> : <div className="team-member-placeholder" aria-hidden="true">{member.name.slice(0, 1)}</div>}
       <div><h3>{member.name}</h3><span>{member.role}</span><p>{member.bio}</p>{member.experience && <p className="team-member-experience"><b>Experience</b> {member.experience}</p>}</div>
     </article>)}</div>
