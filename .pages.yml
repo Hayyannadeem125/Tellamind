@@ -1,0 +1,49 @@
+media:
+  - name: team_photos
+    label: Team photos
+    input: public/team-photos
+    output: /team-photos
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp, avif]
+    rename: safe
+
+content:
+  - name: team_members
+    label: Team members
+    type: collection
+    path: src/content/team-members
+    exclude: [README.md]
+    format: json
+    filename: "{primary}.json"
+    view:
+      primary: name
+    fields:
+      - name: name
+        label: Full name
+        type: string
+        required: true
+      - name: role
+        label: Job title
+        type: string
+        required: true
+      - name: bio
+        label: Short bio
+        type: text
+        required: true
+      - name: experience
+        label: Work experience
+        type: text
+      - name: photo_url
+        label: Profile photo
+        type: image
+        options:
+          media: team_photos
+          path: public/team-photos
+          extensions: [jpg, jpeg, png, webp, avif]
+          rename: safe
+      - name: sort_order
+        label: Display order
+        type: number
+      - name: is_published
+        label: Show on public Team page
+        type: boolean

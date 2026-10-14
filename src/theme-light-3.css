@@ -1,0 +1,519 @@
+/* GO 3: crisp white surfaces, cobalt blue accents, and deep navy text. */
+@import './theme-light-2.css';
+
+html[data-theme="light"] {
+  --ink: #14233f;
+  --muted: #43516a;
+  --line: #d8e1ef;
+  --paper: #f4f7fb;
+  --white: #ffffff;
+  --tm-gold: #315fe9;
+  --tm-gold-soft: #5278ee;
+  --tm-surface: #ffffff;
+  --tm-surface-muted: #eaf0fa;
+  color: #14233f;
+  background: #f4f7fb;
+}
+
+html[data-theme="light"] body { background: #f4f7fb !important; color: #14233f; }
+
+html[data-theme="light"] .header {
+  background: rgba(255, 255, 255, .97) !important;
+  border-bottom-color: #d8e1ef;
+  box-shadow: 0 5px 20px rgba(26, 48, 87, .06);
+}
+
+html[data-theme="light"] .logo,
+html[data-theme="light"] .footer .logo { color: #14233f; }
+html[data-theme="light"] .logo-light { color: #62718a; }
+
+html[data-theme="light"] .nav-links a,
+html[data-theme="light"] .nav-dropdown-trigger,
+html[data-theme="light"] .menu-toggle,
+html[data-theme="light"] .services-dropdown a { color: #243651; }
+
+html[data-theme="light"] .nav-links a:hover,
+html[data-theme="light"] .services-dropdown a:hover,
+html[data-theme="light"] .footer a:hover { color: #315fe9; }
+
+html[data-theme="light"] .services-dropdown {
+  background: #fff;
+  border-color: #d8e1ef;
+  box-shadow: 0 18px 44px rgba(20, 35, 63, .14);
+}
+
+html[data-theme="light"] .services-dropdown a:hover { background: #edf3ff; }
+
+html[data-theme="light"] .theme-toggle {
+  color: #2854d9;
+  background: #edf3ff;
+  border-color: #bdccef;
+}
+
+html[data-theme="light"] .theme-toggle:hover { background: #e1ebff; border-color: #829ee5; }
+html[data-theme="light"] .theme-toggle:focus-visible { outline-color: #315fe9; }
+
+html[data-theme="light"] .button-dark {
+  color: #fff;
+  background: linear-gradient(135deg, #416ff1, #244fcf);
+  box-shadow: 0 9px 24px rgba(49, 95, 233, .2);
+}
+
+html[data-theme="light"] .button-dark:hover { background: linear-gradient(135deg, #527df5, #315fe9); }
+
+html[data-theme="light"] .button-outline {
+  color: #2148b3;
+  border-color: #7694e4;
+}
+
+html[data-theme="light"] .button-outline:hover { background: #eaf0ff; }
+
+html[data-theme="light"] .hero::before {
+  background-image:
+    linear-gradient(90deg, rgba(244, 247, 251, .99) 0%, rgba(244, 247, 251, .95) 38%, rgba(244, 247, 251, .76) 68%, rgba(244, 247, 251, .34) 100%),
+    linear-gradient(0deg, rgba(244, 247, 251, .58), rgba(244, 247, 251, .10)),
+    url("/Golden_AI_tellamind.avif");
+}
+
+html[data-theme="light"] .hero h1,
+html[data-theme="light"] .section-heading h2,
+html[data-theme="light"] .about-copy h2,
+html[data-theme="light"] .pricing-copy h2,
+html[data-theme="light"] .contact-copy h2,
+html[data-theme="light"] .page-hero h1,
+html[data-theme="light"] .about-page-copy h1,
+html[data-theme="light"] .contact-page-intro h1,
+html[data-theme="light"] .not-found h1,
+html[data-theme="light"] .detail-hero h1,
+html[data-theme="light"] .project-detail-hero h1,
+html[data-theme="light"] .detail-main h2,
+html[data-theme="light"] .project-detail-body h2,
+html[data-theme="light"] .team-hero-copy h1,
+html[data-theme="light"] .team-commitment h2,
+html[data-theme="light"] .approach-grid h2,
+html[data-theme="light"] .about-location h2,
+html[data-theme="light"] .scope-band h2,
+html[data-theme="light"] .service-card h3,
+html[data-theme="light"] .principle-grid h3,
+html[data-theme="light"] .team-role-card h2,
+html[data-theme="light"] .process-step h3,
+html[data-theme="light"] .faq-item > button,
+html[data-theme="light"] .project-details h3,
+html[data-theme="light"] .legal-page h1 { color: #14233f; }
+
+html[data-theme="light"] .hero h1 em,
+html[data-theme="light"] .section-heading h2 em,
+html[data-theme="light"] .about-copy h2 em,
+html[data-theme="light"] .pricing-copy h2 em,
+html[data-theme="light"] .contact-copy h2 em,
+html[data-theme="light"] .page-hero h1 em,
+html[data-theme="light"] .about-page-copy h1 em,
+html[data-theme="light"] .detail-hero h1 em,
+html[data-theme="light"] .project-detail-hero h1 em,
+html[data-theme="light"] .detail-main h2 em,
+html[data-theme="light"] .project-detail-body h2 em,
+html[data-theme="light"] .team-hero-copy h1 em,
+html[data-theme="light"] .team-commitment h2 em,
+html[data-theme="light"] .approach-grid h2 em,
+html[data-theme="light"] .about-location h2 em,
+html[data-theme="light"] .scope-band h2 em,
+html[data-theme="light"] .eyebrow,
+html[data-theme="light"] .text-link,
+html[data-theme="light"] .arrow-link,
+html[data-theme="light"] .card-arrow,
+html[data-theme="light"] .service-note > span,
+html[data-theme="light"] .service-note > a,
+html[data-theme="light"] .footer-news .text-link,
+html[data-theme="light"] .footer a:hover { color: #315fe9; }
+
+html[data-theme="light"] .hero-lede,
+html[data-theme="light"] .team-hero-copy > p,
+html[data-theme="light"] .heading-side p,
+html[data-theme="light"] .about-copy > p,
+html[data-theme="light"] .pricing-copy > p,
+html[data-theme="light"] .page-hero > p,
+html[data-theme="light"] .about-page-copy > p,
+html[data-theme="light"] .contact-page-intro > p,
+html[data-theme="light"] .not-found > p,
+html[data-theme="light"] .detail-hero-copy > p,
+html[data-theme="light"] .detail-intro,
+html[data-theme="light"] .approach-grid p,
+html[data-theme="light"] .about-location p,
+html[data-theme="light"] .project-detail-body > div > p,
+html[data-theme="light"] .service-card > p,
+html[data-theme="light"] .service-note p,
+html[data-theme="light"] .principle-grid p,
+html[data-theme="light"] .team-role-card p,
+html[data-theme="light"] .team-transparency,
+html[data-theme="light"] .process-step p,
+html[data-theme="light"] .scope-card > p,
+html[data-theme="light"] .process-detail-step p,
+html[data-theme="light"] .location-card > small,
+html[data-theme="light"] .faq-section .heading-side p,
+html[data-theme="light"] .faq-item > p,
+html[data-theme="light"] .contact-copy > p,
+html[data-theme="light"] .contact-form > small,
+html[data-theme="light"] .form-status,
+html[data-theme="light"] .form-heading span,
+html[data-theme="light"] .contact-alternate p,
+html[data-theme="light"] .legal-page p,
+html[data-theme="light"] .project-details span,
+html[data-theme="light"] .project-details p,
+html[data-theme="light"] .concept-disclaimer p,
+html[data-theme="light"] .footer-main > div:first-child > p,
+html[data-theme="light"] .footer-col > a,
+html[data-theme="light"] .footer-news p,
+html[data-theme="light"] .footer-bottom,
+html[data-theme="light"] .footer-bottom a,
+html[data-theme="light"] .footer-location { color: #43516a; }
+
+html[data-theme="light"] .hero-copy > .eyebrow,
+html[data-theme="light"] .section-heading > div:first-child > .eyebrow,
+html[data-theme="light"] .about-copy > .eyebrow,
+html[data-theme="light"] .pricing-copy > .eyebrow {
+  color: #244bb7;
+  background: #edf3ff;
+  border-color: #c5d3f2;
+}
+
+html[data-theme="light"] .eyebrow-dot,
+html[data-theme="light"] .hero-copy > .eyebrow .eyebrow-dot,
+html[data-theme="light"] .section-heading > div:first-child > .eyebrow .eyebrow-dot,
+html[data-theme="light"] .about-copy > .eyebrow .eyebrow-dot,
+html[data-theme="light"] .pricing-copy > .eyebrow .eyebrow-dot {
+  background: #315fe9;
+  box-shadow: 0 0 0 4px rgba(49, 95, 233, .14);
+}
+
+html[data-theme="light"] .visual-orbit { border-color: rgba(49, 95, 233, .55) !important; }
+html[data-theme="light"] .orbit-two { border-color: rgba(49, 95, 233, .35) !important; }
+html[data-theme="light"] .team-orbit { border-color: rgba(49, 95, 233, .56) !important; }
+html[data-theme="light"] .team-orbit-two { border-color: rgba(20, 35, 63, .32) !important; }
+
+html[data-theme="light"] .trust-strip,
+html[data-theme="light"] .work-section,
+html[data-theme="light"] .process-section,
+html[data-theme="light"] .team-roles,
+html[data-theme="light"] .contact-section,
+html[data-theme="light"] .contact-page-section,
+html[data-theme="light"] .service-approach,
+html[data-theme="light"] .about-principles,
+html[data-theme="light"] .scope-band {
+  background: #eaf0fa;
+  border-color: #d8e1ef;
+}
+
+html[data-theme="light"] .trust-strip { border-block: 1px solid #d8e1ef; }
+html[data-theme="light"] .trust-label,
+html[data-theme="light"] .trust-note { color: #43516a; }
+html[data-theme="light"] .trust-item { color: #243651; }
+html[data-theme="light"] .trust-item svg,
+html[data-theme="light"] .process-step > span,
+html[data-theme="light"] .step-line:before { color: #315fe9; }
+
+html[data-theme="light"] .service-card,
+html[data-theme="light"] .principle-grid article,
+html[data-theme="light"] .team-role-card,
+html[data-theme="light"] .scope-card,
+html[data-theme="light"] .contact-form,
+html[data-theme="light"] .concept-disclaimer,
+html[data-theme="light"] .service-note {
+  color: #14233f;
+  background: #fff;
+  border-color: #d8e1ef;
+  box-shadow: 0 12px 30px rgba(29, 50, 86, .07);
+}
+
+html[data-theme="light"] .service-card:hover,
+html[data-theme="light"] .team-role-card:hover {
+  border-color: #8ba5ed;
+  box-shadow: 0 18px 38px rgba(29, 63, 147, .13), 0 0 0 1px rgba(49, 95, 233, .12);
+}
+
+html[data-theme="light"] .service-icon {
+  color: #315fe9;
+  background: #edf3ff;
+  border-color: #c8d6f5;
+}
+
+html[data-theme="light"] .service-icon-image,
+html[data-theme="light"] .service-icon-ai,
+html[data-theme="light"] .service-icon-seo,
+html[data-theme="light"] .service-icon-website {
+  background: #eaf0fa;
+  border-color: #b9caed;
+}
+
+html[data-theme="light"] .service-icon-snapchat { background: #fffc00; border-color: #d6d172; }
+
+html[data-theme="light"] .service-number,
+html[data-theme="light"] .tag-list span,
+html[data-theme="light"] .pricing-small,
+html[data-theme="light"] .scope-kicker {
+  color: #43516a;
+  background: #f2f5fa;
+  border-color: #dce4f0;
+}
+
+html[data-theme="light"] .about-art,
+html[data-theme="light"] .about-page-art {
+  background: radial-gradient(circle at 50% 45%, #e2ebff, #cad9f7 68%, #b9c9e9);
+  border-color: #aebfe0;
+  box-shadow: 0 18px 48px rgba(29, 50, 86, .12);
+}
+
+html[data-theme="light"] .about-grid-lines {
+  background-image: linear-gradient(rgba(67, 104, 193, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(67, 104, 193, .12) 1px, transparent 1px);
+}
+
+html[data-theme="light"] .about-orb {
+  background: radial-gradient(circle at 30% 22%, #fff 0, #c6d8ff 18%, #6689df 50%, #3156ba 82%, #203d91 100%);
+  box-shadow: inset -18px -16px 28px rgba(20, 44, 105, .35), 0 24px 48px rgba(30, 59, 130, .24);
+}
+
+html[data-theme="light"] .about-orb::before,
+html[data-theme="light"] .about-orb::after { border-color: rgba(255, 255, 255, .82); }
+html[data-theme="light"] .about-label { color: #243651; }
+html[data-theme="light"] .about-label .eyebrow-dot { background: #315fe9; box-shadow: 0 0 0 4px rgba(49, 95, 233, .14); }
+
+html[data-theme="light"] .about-mini-card {
+  color: #315fe9;
+  background: rgba(255, 255, 255, .96);
+  border-color: #b8c8e7;
+  box-shadow: 0 10px 28px rgba(29, 50, 86, .14);
+}
+
+html[data-theme="light"] .about-mini-card span,
+html[data-theme="light"] .about-mini-card b,
+html[data-theme="light"] .about-facts b,
+html[data-theme="light"] .process-detail-step h2,
+html[data-theme="light"] .contact-alternate b { color: #243651; }
+
+html[data-theme="light"] .about-facts,
+html[data-theme="light"] .about-facts span,
+html[data-theme="light"] .process-detail-step .process-step-number,
+html[data-theme="light"] .process-output,
+html[data-theme="light"] .contact-alternate p,
+html[data-theme="light"] .timezone-note { border-color: #d8e1ef; color: #43516a; }
+
+html[data-theme="light"] .step-line,
+html[data-theme="light"] .scope-line,
+html[data-theme="light"] .process-detail-step { background: #eaf0fa; border-color: #d8e1ef; }
+
+html[data-theme="light"] .pricing-panel {
+  background: linear-gradient(115deg, #fff, #edf3ff);
+  border-color: #cbd8ed;
+}
+
+html[data-theme="light"] .pricing-aside { border-color: #cbd8ed; }
+html[data-theme="light"] .pricing-aside > b,
+html[data-theme="light"] .pricing-aside li { color: #243651; }
+html[data-theme="light"] .aside-rule { background: #315fe9; }
+html[data-theme="light"] .pricing-aside > a { color: #315fe9; }
+
+html[data-theme="light"] .faq-section.faq-compact::before {
+  background: linear-gradient(115deg, #edf3ff, #e4ecfa);
+  border-color: #d1ddef;
+}
+
+html[data-theme="light"] .faq-section .faq-list,
+html[data-theme="light"] .faq-section .faq-item,
+html[data-theme="light"] .footer-bottom { border-color: #d8e1ef; }
+html[data-theme="light"] .faq-plus { color: #315fe9; border-color: #9bb1e7; }
+
+html[data-theme="light"] .contact-section,
+html[data-theme="light"] .contact-page-section { background: #eaf0fa; }
+html[data-theme="light"] .contact-links > a { color: #243651; border-color: #d3deef; }
+html[data-theme="light"] .contact-links > a > span { color: #43516a; }
+html[data-theme="light"] .contact-links > a > svg,
+html[data-theme="light"] .contact-social a,
+html[data-theme="light"] .contact-social > span { color: #315fe9; }
+
+html[data-theme="light"] .contact-form input,
+html[data-theme="light"] .contact-form textarea,
+html[data-theme="light"] .contact-form select {
+  color: #14233f;
+  background: #fff;
+  border-color: #cbd8ed;
+}
+
+html[data-theme="light"] .contact-form input::placeholder,
+html[data-theme="light"] .contact-form textarea::placeholder { color: #71809a; }
+html[data-theme="light"] .contact-form input:focus,
+html[data-theme="light"] .contact-form textarea:focus,
+html[data-theme="light"] .contact-form select:focus { border-color: #5278ee; box-shadow: 0 0 0 3px rgba(49, 95, 233, .13); }
+
+html[data-theme="light"] .detail-icon-art {
+  color: #244bb7;
+  background: radial-gradient(circle at 50%, #f6f9ff, #dce7fc 63%, #c8d7f2);
+  border-color: #b9caed;
+}
+
+html[data-theme="light"] .detail-icon-art > span { background: linear-gradient(145deg, #fff, #e4edff); }
+html[data-theme="light"] .detail-icon-art small { color: #243651; }
+html[data-theme="light"] .detail-icon-art::before,
+html[data-theme="light"] .detail-icon-art::after { border-color: rgba(49, 95, 233, .32); }
+
+html[data-theme="light"] .scope-line,
+html[data-theme="light"] .service-process-strip,
+html[data-theme="light"] .snap-support-card { background: #eaf0fa; border-color: #d8e1ef; }
+html[data-theme="light"] .scope-card > b,
+html[data-theme="light"] .scope-card > p,
+html[data-theme="light"] .scope-kicker,
+html[data-theme="light"] .scope-card > a,
+html[data-theme="light"] .mini-process span,
+html[data-theme="light"] .breadcrumbs,
+html[data-theme="light"] .breadcrumbs span:last-child,
+html[data-theme="light"] .usecase-block li,
+html[data-theme="light"] .directory-grid > a { color: #33445f; }
+
+html[data-theme="light"] .scope-card > a,
+html[data-theme="light"] .mini-process i,
+html[data-theme="light"] .directory-grid > a span,
+html[data-theme="light"] .directory-grid > a svg { color: #315fe9; }
+html[data-theme="light"] .usecase-block li,
+html[data-theme="light"] .directory-grid,
+html[data-theme="light"] .directory-grid > a { border-color: #d8e1ef; }
+html[data-theme="light"] .directory-grid > a:hover { background: #edf3ff; }
+
+html[data-theme="light"] .snap-support-card h3,
+html[data-theme="light"] .snap-support-card > p b { color: #243651; }
+html[data-theme="light"] .snap-support-card li { color: #33445f; background: #fff; border-color: #d8e1ef; }
+html[data-theme="light"] .snap-support-card > p { color: #33445f; background: #edf3ff; border-color: #cbd8ed; }
+html[data-theme="light"] .snap-official-links a { color: #244bb7; border-color: #9bb1e7; }
+html[data-theme="light"] .snap-official-links a:hover { background: #e1ebff; }
+
+/* Cool, light cards for the studio project art and their product mockups. */
+html[data-theme="light"] .project-art--automation {
+  background: radial-gradient(circle at 82% 0, #cfddfb, #eaf0fa 54%, #dde6f5);
+  border-color: #c1cfe7;
+}
+html[data-theme="light"] .project-art--website {
+  background: linear-gradient(145deg, #eef3fb, #dfe8f6 78%);
+  border-color: #c1cfe7;
+}
+html[data-theme="light"] .project-art--creator {
+  background: radial-gradient(circle at 15% 0, #d9e4fa, #eaf0fa 60%, #dce5f4);
+  border-color: #c1cfe7;
+}
+
+html[data-theme="light"] .automation-preview,
+html[data-theme="light"] .website-preview,
+html[data-theme="light"] .creator-preview,
+html[data-theme="light"] .service-card,
+html[data-theme="light"] .principle-grid article,
+html[data-theme="light"] .team-role-card,
+html[data-theme="light"] .concept-disclaimer {
+  color: #14233f;
+  background: #fff;
+  border-color: #d3deef;
+}
+
+html[data-theme="light"] .automation-topbar,
+html[data-theme="light"] .website-topbar,
+html[data-theme="light"] .creator-topbar,
+html[data-theme="light"] .website-hero,
+html[data-theme="light"] .website-listings { color: #243651; background: #f5f8fd; border-color: #d8e1ef; }
+html[data-theme="light"] .automation-topbar small,
+html[data-theme="light"] .website-topbar > span:nth-child(2),
+html[data-theme="light"] .creator-profile > span,
+html[data-theme="light"] .creator-profile .creator-note,
+html[data-theme="light"] .creator-checklist > p,
+html[data-theme="light"] .website-listings > div > small,
+html[data-theme="light"] .automation-heading > span,
+html[data-theme="light"] .automation-step small,
+html[data-theme="light"] .recruitment-candidate > small { color: #53627b; }
+
+html[data-theme="light"] .automation-logo,
+html[data-theme="light"] .automation-step-icon,
+html[data-theme="light"] .recruitment-candidate-top > span,
+html[data-theme="light"] .creator-checklist > div > span { color: #315fe9; background: #e8efff; }
+html[data-theme="light"] .automation-heading small,
+html[data-theme="light"] .creator-profile > small,
+html[data-theme="light"] .creator-checklist > small,
+html[data-theme="light"] .website-copy > small { color: #315fe9; }
+html[data-theme="light"] .preview-tag,
+html[data-theme="light"] .creator-topbar > b { color: #244bb7; background: #edf3ff; border-color: #c5d3f2; }
+
+html[data-theme="light"] .recruitment-stage,
+html[data-theme="light"] .automation-step,
+html[data-theme="light"] .creator-checklist,
+html[data-theme="light"] .website-listings > div,
+html[data-theme="light"] .recruitment-candidate,
+html[data-theme="light"] .creator-checklist > div,
+html[data-theme="light"] .website-search { color: #33445f; background: #fff; border-color: #d8e1ef; }
+
+html[data-theme="light"] .recruitment-stage-heading > b,
+html[data-theme="light"] .recruitment-candidate-top > b,
+html[data-theme="light"] .automation-step > b,
+html[data-theme="light"] .automation-heading b,
+html[data-theme="light"] .creator-profile > b,
+html[data-theme="light"] .creator-checklist > b,
+html[data-theme="light"] .website-copy > b,
+html[data-theme="light"] .website-listings > span,
+html[data-theme="light"] .website-listings > div > b { color: #1a2b49; }
+
+html[data-theme="light"] .recruitment-stage-heading > span,
+html[data-theme="light"] .recruitment-candidate > em,
+html[data-theme="light"] .recruitment-automation { color: #29478e; background: #edf3ff; border-color: #cbd8ed; }
+html[data-theme="light"] .recruitment-automation > b { color: #244bb7; }
+html[data-theme="light"] .project-art-caption { color: #244bb7; background: rgba(255, 255, 255, .96); border-color: #b8c8e7; }
+html[data-theme="light"] .project-details span,
+html[data-theme="light"] .project-details p { color: #43516a; }
+html[data-theme="light"] .project-details h3 { color: #14233f; }
+html[data-theme="light"] .project-details > a { color: #315fe9; border-color: #9bb1e7; }
+html[data-theme="light"] .concept-disclaimer p { color: #43516a; }
+html[data-theme="light"] .concept-disclaimer b { color: #243651; }
+
+html[data-theme="light"] .project-art-caption,
+html[data-theme="light"] .disclaimer-icon { color: #315fe9; }
+html[data-theme="light"] .disclaimer-icon { background: #e7eeff; }
+html[data-theme="light"] .project-art { box-shadow: 0 14px 35px rgba(29, 50, 86, .08); }
+
+html[data-theme="light"] .project-detail-hero,
+html[data-theme="light"] .detail-hero,
+html[data-theme="light"] .about-page-hero,
+html[data-theme="light"] .contact-page-intro { color: #14233f; }
+
+html[data-theme="light"] .location-card {
+  background: linear-gradient(145deg, #dfeaff, #c9d9f5);
+  border-color: #aebfe0;
+}
+html[data-theme="light"] .location-card > b,
+html[data-theme="light"] .location-card > small { color: #243651; }
+html[data-theme="light"] .location-orb { color: #fff; background: linear-gradient(145deg, #5278ee, #244fcf); }
+
+html[data-theme="light"] .team-role-icon,
+html[data-theme="light"] .team-role-card > div,
+html[data-theme="light"] .team-role-card > div span,
+html[data-theme="light"] .team-role-card .team-role-card-top > span:first-child { color: #315fe9; }
+html[data-theme="light"] .team-role-icon { background: #edf3ff; border-color: #bdccef; box-shadow: none; }
+html[data-theme="light"] .team-commitment li { color: #33445f; }
+
+html[data-theme="light"] .footer {
+  color: #14233f;
+  background: #eaf0fa;
+  border-color: #d3deef;
+}
+html[data-theme="light"] .footer-col > b { color: #243651; }
+html[data-theme="light"] .footer-social-link { color: #315fe9; background: #f5f8fd; border-color: #bdccef; }
+html[data-theme="light"] .footer-social-link:hover { background: #e1ebff; border-color: #829ee5; }
+
+html[data-theme="light"] .legal-draft-notice { background: #edf3ff; border-color: #c5d3f2; }
+html[data-theme="light"] .legal-draft-notice b,
+html[data-theme="light"] .legal-draft-notice p { color: #33445f; }
+
+/* Keep the final call-to-action dark so the blue theme has a strong anchor. */
+html[data-theme="light"] .cta-band { background: linear-gradient(112deg, #192947, #101d34); border-color: #3e5682; }
+html[data-theme="light"] .cta-band h2 { color: #fff; }
+html[data-theme="light"] .cta-band p { color: #d2dced; }
+
+@media (max-width: 740px) {
+  html[data-theme="light"] .header,
+  html[data-theme="light"] .nav-links { background: #fff !important; border-color: #d8e1ef; }
+  html[data-theme="light"] .hero::before {
+    background-image:
+      linear-gradient(180deg, rgba(244, 247, 251, .96) 0%, rgba(244, 247, 251, .88) 53%, rgba(244, 247, 251, .58) 100%),
+      url("/Golden_AI_tellamind.avif");
+  }
+}

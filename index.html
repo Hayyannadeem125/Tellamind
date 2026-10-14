@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050403" />
+    <meta name="description" content="TellaMind builds thoughtful websites, apps, AI agents, and automations for ambitious businesses worldwide." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="TellaMind — Intelligence that moves your business forward" />
+    <meta property="og:description" content="Thoughtful websites, apps, AI agents, and digital systems for ambitious businesses." />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>TellaMind — Intelligence that moves your business forward</title>
+    <script>
+      try {
+        const savedTheme = localStorage.getItem('tellamind-theme');
+        document.documentElement.dataset.theme = savedTheme === 'light' ? 'light' : 'dark';
+        document.documentElement.style.colorScheme = savedTheme === 'light' ? 'light' : 'dark';
+        document.querySelector('meta[name="theme-color"]').content = savedTheme === 'light' ? '#f3f7f2' : '#050403';
+        if (savedTheme === 'light') {
+          const heroImage = document.createElement('link');
+          heroImage.rel = 'preload';
+          heroImage.as = 'image';
+          heroImage.href = '/Golden_AI_tellamind.avif';
+          heroImage.type = 'image/avif';
+          heroImage.fetchPriority = 'high';
+          document.head.append(heroImage);
+        }
+      } catch {
+        document.documentElement.dataset.theme = 'dark';
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
