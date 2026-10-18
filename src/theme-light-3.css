@@ -383,7 +383,7 @@ html[data-theme="light"] .snap-support-card > p { color: #33445f; background: #e
 html[data-theme="light"] .snap-official-links a { color: #244bb7; border-color: #9bb1e7; }
 html[data-theme="light"] .snap-official-links a:hover { background: #e1ebff; }
 
-/* Cool, light cards for the studio project art and their product mockups. */
+/* Cool, light cards for the project demo art and their product mockups. */
 html[data-theme="light"] .project-art--automation {
   background: radial-gradient(circle at 82% 0, #cfddfb, #eaf0fa 54%, #dde6f5);
   border-color: #c1cfe7;

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760" fill="none">
+  <style>
+    .hero-cube-main { transform-box: fill-box; transform-origin: center; animation: hero-main-float 4.8s ease-in-out infinite; }
+    .hero-cube-small { transform-box: fill-box; transform-origin: center; animation-duration: 5.1s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+    .hero-orbit-lines { transform-box: fill-box; transform-origin: center; animation: hero-orbits-turn 23s linear infinite; }
+    .hero-cube-small-1 { animation-name: hero-cube-path-1; }
+    .hero-cube-small-2 { animation-name: hero-cube-path-2; animation-delay: -1.4s; }
+    .hero-cube-small-3 { animation-name: hero-cube-path-3; animation-delay: -2.8s; }
+    .hero-cube-small-4 { animation-name: hero-cube-path-4; animation-delay: -4.2s; }
+    @keyframes hero-main-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+    @keyframes hero-orbits-turn { to { transform: rotate(360deg); } }
+    @keyframes hero-cube-path-1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-7px,-11px) rotate(-2deg); } }
+    @keyframes hero-cube-path-2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(7px,-10px) rotate(2deg); } }
+    @keyframes hero-cube-path-3 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(7px,9px) rotate(-2deg); } }
+    @keyframes hero-cube-path-4 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-7px,8px) rotate(2deg); } }
+    @media (prefers-reduced-motion: reduce) { .hero-cube-main, .hero-cube-small, .hero-orbit-lines { animation: none !important; } }
+  </style>
+  <defs>
+    <radialGradient id="glow"><stop stop-color="#D1AE5D" stop-opacity=".24"/><stop offset="1" stop-color="#D1AE5D" stop-opacity="0"/></radialGradient>
+    <linearGradient id="goldTop" x1="-70" y1="-130" x2="115" y2="20" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF0DC"/><stop offset=".38" stop-color="#E7C77D"/><stop offset="1" stop-color="#9C703C"/></linearGradient>
+    <linearGradient id="goldLeft" x1="-120" y1="-50" x2="10" y2="145" gradientUnits="userSpaceOnUse"><stop stop-color="#B09043"/><stop offset="1" stop-color="#403326"/></linearGradient>
+    <linearGradient id="goldRight" x1="0" y1="-10" x2="130" y2="145" gradientUnits="userSpaceOnUse"><stop stop-color="#D1AE5D"/><stop offset="1" stop-color="#73512D"/></linearGradient>
+    <linearGradient id="silverTop" x1="-70" y1="-130" x2="115" y2="20" gradientUnits="userSpaceOnUse"><stop stop-color="#FFF8F0"/><stop offset=".4" stop-color="#B8B6B0"/><stop offset="1" stop-color="#6C6861"/></linearGradient>
+    <linearGradient id="silverLeft" x1="-120" y1="-50" x2="10" y2="145" gradientUnits="userSpaceOnUse"><stop stop-color="#92918D"/><stop offset="1" stop-color="#343230"/></linearGradient>
+    <linearGradient id="silverRight" x1="0" y1="-10" x2="130" y2="145" gradientUnits="userSpaceOnUse"><stop stop-color="#D8D5CE"/><stop offset="1" stop-color="#625D55"/></linearGradient>
+    <filter id="shadow" x="-80%" y="-80%" width="260%" height="280%"><feGaussianBlur in="SourceAlpha" stdDeviation="20"/><feOffset dy="28"/><feComponentTransfer><feFuncA type="linear" slope=".45"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="blur"><feGaussianBlur stdDeviation="45"/></filter>
+    <g id="cube-gold" stroke="#FFEAD0" stroke-opacity=".56" stroke-width="1.4" stroke-linejoin="round">
+      <path d="M0-128 125-58 0 14-125-58 0-128Z" fill="url(#goldTop)"/>
+      <path d="M-125-58 0 14v144l-125-72V-58Z" fill="url(#goldLeft)"/>
+      <path d="M125-58 0 14v144l125-72V-58Z" fill="url(#goldRight)"/>
+      <path d="M0-128v142M-125-58 0 14l125-72M0 14v144" fill="none" stroke="#FFF2DF" stroke-opacity=".68"/>
+      <path d="m-93-59 93-53 91 53M-93-32l93 53 93-53" stroke="#fff4e2" stroke-opacity=".23"/>
+    </g>
+    <g id="cube-silver" stroke="#FFF7EB" stroke-opacity=".5" stroke-width="1.25" stroke-linejoin="round">
+      <path d="M0-128 125-58 0 14-125-58 0-128Z" fill="url(#silverTop)"/>
+      <path d="M-125-58 0 14v144l-125-72V-58Z" fill="url(#silverLeft)"/>
+      <path d="M125-58 0 14v144l125-72V-58Z" fill="url(#silverRight)"/>
+      <path d="M0-128v142M-125-58 0 14l125-72M0 14v144" fill="none" stroke="#fff" stroke-opacity=".56"/>
+    </g>
+  </defs>
+  <ellipse cx="470" cy="370" rx="330" ry="300" fill="url(#glow)" filter="url(#blur)"/>
+  <g class="hero-orbit-lines" stroke="#D1AE5D" stroke-opacity=".48" stroke-width="1.25">
+    <ellipse cx="455" cy="365" rx="342" ry="138" transform="rotate(-25 455 365)"/>
+    <ellipse cx="455" cy="365" rx="342" ry="138" transform="rotate(35 455 365)"/>
+    <ellipse cx="455" cy="365" rx="275" ry="180" transform="rotate(90 455 365)" stroke-opacity=".24"/>
+  </g>
+  <g filter="url(#shadow)">
+    <g class="hero-cube-main"><use href="#cube-silver" transform="translate(455 335) scale(1.22)"/></g>
+    <g class="hero-cube-small hero-cube-small-1">
+      <use href="#cube-gold" transform="translate(260 280) scale(.55) rotate(-9)"/>
+    </g>
+    <g class="hero-cube-small hero-cube-small-2"><use href="#cube-silver" transform="translate(640 225) scale(.54) rotate(10)"/></g>
+    <g class="hero-cube-small hero-cube-small-3"><use href="#cube-gold" transform="translate(665 475) scale(.61) rotate(8)"/></g>
+    <g class="hero-cube-small hero-cube-small-4"><use href="#cube-silver" transform="translate(340 525) scale(.46) rotate(-7)"/></g>
+  </g>
+  <g fill="#F4E0CD"><circle cx="154" cy="183" r="3"/><circle cx="756" cy="329" r="2.5"/><circle cx="715" cy="585" r="3"/><circle cx="257" cy="590" r="2"/></g>
+  <g stroke="#D1AE5D" stroke-opacity=".45"><path d="M155 166v34m-17-17h34M755 313v32m-16-16h32M716 568v34m-17-17h34"/></g>
+</svg>

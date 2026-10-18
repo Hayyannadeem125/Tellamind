@@ -1,6 +1,6 @@
 # TellaMind Website
 
-Responsive multi-page React website for TellaMind, a Michigan-based digital studio serving clients worldwide.
+Responsive multi-page React website for TellaMind, a Michigan-based technology company serving clients worldwide.
 
 ## Requirements
 
@@ -41,7 +41,7 @@ package.json         Dependencies and dev/build commands
 
 Copy `.env.example` to `.env.local` and add only values controlled by TellaMind:
 
-- `VITE_FORMSPREE_ENDPOINT`: configure a Formspree endpoint for direct form delivery. Without it, the form prepares an email in the visitor's email application and explains the fallback.
+- `VITE_FORMSPREE_ENDPOINT`: configure one Formspree endpoint for contact, service, and Snapchat inquiries. Without it, forms open a prefilled email in the visitor's email application. For GitHub Pages, add this as the Actions variable `VITE_FORMSPREE_ENDPOINT` under **Settings → Secrets and variables → Actions → Variables**; the endpoint is public in the built frontend, so it is not a secret.
 - `VITE_BOOKING_URL`: add the real scheduling page URL. If blank, the site asks visitors to request a meeting by email.
 - `VITE_LINKEDIN_URL`, `VITE_INSTAGRAM_URL`, `VITE_FACEBOOK_URL`: add live public profiles. Blank values hide those footer links.
 - `VITE_SITE_URL`: the purchased, verified website domain. Enables canonical URL and Organization structured data.
@@ -53,7 +53,7 @@ Restart the dev server after changing environment variables. Never put private A
 1. Review `TellaMind-Website-Documentation.md` and `DESIGN-UPDATE.md`; the addendum records the latest visual/navigation decisions. Confirm which listed services TellaMind can deliver.
 2. Set `VITE_SITE_URL`, then replace the sample domain in `public/sitemap.xml` and add its Sitemap URL to `public/robots.txt` after choosing and verifying the actual domain.
 3. Review or replace the draft Privacy and Terms pages with business-approved wording. They are clearly marked as drafts and are not legal advice.
-4. Configure the contact form endpoint and submit a real test inquiry after choosing the provider.
+4. Create a Formspree form, set its notification recipient to `tellamindwork@gmail.com`, verify the recipient, configure `VITE_FORMSPREE_ENDPOINT` locally and as a GitHub Actions variable, then submit and confirm a real test inquiry in both the inbox and Formspree submissions.
 5. Add the real meeting link and social profile URLs when available.
 6. Keep concept portfolio disclaimers visible until genuine client work is approved for publication.
 7. Confirm actual company location wording, service scope, ownership, and any required business details.
@@ -61,7 +61,7 @@ Restart the dev server after changing environment variables. Never put private A
 ## Routes
 
 - `/`
-- `/services` and seven `/services/:slug` details, including `/services/snapstar-support`
+- `/services` and eleven `/services/:slug` details, including `/services/meta-ads` and `/services/snapstar-support`
 - `/work` and three `/work/:slug` concept details
 - `/about`
 - `/team`
@@ -87,7 +87,7 @@ The public Team page keeps its existing design. To manage profiles without a dat
 4. Open **Team members**. Add, edit, publish, unpublish, or delete profiles there. Upload photos through the **Profile photo** field.
 5. Confirm the hosting provider is connected to the same GitHub repository and deploys commits to the production branch. Vercel can do this through its Git integration.
 
-Keep the GitHub repository private and grant access only to people who should edit the site. Only publish team details and photos that are approved for the public website. Team profiles are read from the Pages CMS-managed files at build time; the site does not connect to a database. There is no `/admin` login page—the editor is the separate Pages CMS portal at `app.pagescms.org`. Copy any existing team profiles from the old database into Pages CMS before switching over if you need to retain them.
+Keep the GitHub repository private and grant access only to people who should edit the site. Only publish team details and photos that are approved for the public website. Team profiles are read from the Pages CMS-managed files at build time; the site does not connect to a database. There is no `/admin` login page. The editor is the separate Pages CMS portal at `app.pagescms.org`. Copy any existing team profiles from the old database into Pages CMS before switching over if you need to retain them.
 
 ## SEO launch checklist
 

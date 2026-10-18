@@ -58,7 +58,9 @@
   </g>
   <g filter="url(#shadow)">
     <g class="hero-cube-main"><use href="#cube-forest" transform="translate(455 335) scale(1.22)"/></g>
-    <g class="hero-cube-small hero-cube-small-1"><use href="#cube-olive" transform="translate(260 280) scale(.55) rotate(-9)"/></g>
+    <g class="hero-cube-small hero-cube-small-1">
+      <use href="#cube-olive" transform="translate(260 280) scale(.55) rotate(-9)"/>
+    </g>
     <g class="hero-cube-small hero-cube-small-2"><use href="#cube-teal" transform="translate(640 225) scale(.54) rotate(10)"/></g>
     <g class="hero-cube-small hero-cube-small-3"><use href="#cube-emerald" transform="translate(665 475) scale(.61) rotate(8)"/></g>
     <g class="hero-cube-small hero-cube-small-4"><use href="#cube-sage" transform="translate(340 525) scale(.46) rotate(-7)"/></g>

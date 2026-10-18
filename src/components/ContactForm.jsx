@@ -13,6 +13,7 @@ export function ContactForm() {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
+    data.set('subject', `New project inquiry: ${data.get('service')}`);
     setState({ status: 'sending', message: 'Sending your inquiry…' });
     if (endpoint) {
       try {
@@ -26,12 +27,12 @@ export function ContactForm() {
       return;
     }
     const body = encodeURIComponent(`Name: ${data.get('name')}\nEmail: ${data.get('email')}\nBusiness: ${data.get('company') || 'Not provided'}\nService: ${data.get('service')}\nBudget: ${data.get('budget') || 'Not provided'}\nTimeframe: ${data.get('timeframe') || 'Not provided'}\n\nProject details:\n${data.get('message')}`);
-    window.location.href = `mailto:tellamindwork@gmail.com?subject=${encodeURIComponent(`TellaMind project inquiry — ${data.get('service')}`)}&body=${body}`;
+    window.location.href = `mailto:tellamindwork@gmail.com?subject=${encodeURIComponent(`TellaMind project inquiry: ${data.get('service')}`)}&body=${body}`;
     setState({ status: 'fallback', message: 'Your email app should open with the inquiry ready to review and send. If it does not, email tellamindwork@gmail.com.' });
   }
   return <form className="contact-form" onSubmit={handleSubmit}>
     <div className="form-heading"><b>Share a few project details</b><span>About 2 minutes</span></div>
-    <label>Your name<input required name="name" autoComplete="name" placeholder="Hayyan Nadeem" /></label>
+    <label>Your name<input required name="name" autoComplete="name" placeholder="Your name" /></label>
     <label>Work email<input required name="email" type="email" autoComplete="email" placeholder="Your Email" /></label>
     <label>Business or company <span className="optional">Optional</span><input name="company" autoComplete="organization" placeholder="Your business name" /></label>
     <label>What can we help with?<select defaultValue={initialService} required name="service"><option value="" disabled>Select a service</option>{services.map((service) => <option key={service.slug} value={service.title}>{service.title}</option>)}<option value="Something else">Something else</option></select></label>

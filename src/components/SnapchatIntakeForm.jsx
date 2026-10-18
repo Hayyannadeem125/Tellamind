@@ -12,6 +12,7 @@ export function SnapchatIntakeForm() {
     const form = event.currentTarget;
     const data = new FormData(form);
     data.set('service', 'Snap Star & Snapchat Creator Support');
+    data.set('subject', 'New Snapchat creator readiness inquiry');
     setState({ status: 'sending', message: 'Preparing your readiness request…' });
 
     if (endpoint) {

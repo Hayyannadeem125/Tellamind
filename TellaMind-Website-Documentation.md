@@ -1,4 +1,4 @@
-# TellaMind Website — Complete Build Documentation
+# TellaMind Website: Complete Build Documentation
 
 **Document purpose:** Is document ko React developer/designer ko de kar TellaMind ki marketing website banwai ja sakti hai. Yeh brand, pages, content, interactions, design direction aur launch requirements define karta hai.
 
@@ -14,7 +14,7 @@
 
 ### Positioning
 
-TellaMind ek Michigan-based digital studio/software house hai jo businesses ke liye websites, apps, AI agents, automations aur digital growth services provide karta hai. Brand ko practical, thoughtful, modern aur approachable feel hona chahiye. Sirf “AI company” ya sirf “social media agency” ke taur par position na karein.
+TellaMind ek Michigan-based technology company hai jo businesses ke liye websites, apps, AI agents, automations aur digital growth services provide karta hai. Brand ko practical, thoughtful, modern aur approachable feel hona chahiye. Sirf “AI company” ya sirf “social media agency” ke taur par position na karein.
 
 ### Recommended tagline
 
@@ -65,24 +65,24 @@ Track karne layak events: contact form attempt/submission, email click, WhatsApp
 
 ### MVP sitemap
 
-- `/` — Home
-- `/services` — Services overview
-- `/services/ai-automation` — AI Agents & Automation
-- `/services/websites-ecommerce` — Websites & E-commerce
-- `/services/apps-software` — Apps & Custom Software
-- `/services/social-creator-growth` — Social Media & Creator Growth
-- `/services/seo-digital-marketing` — SEO & Digital Marketing
-- `/services/brand-launch` — Brand & Business Launch
-- `/work` — Portfolio / concept projects
-- `/work/northstar-realty` — Concept project detail
-- `/work/morrow-care` — Concept project detail
-- `/work/goodkind-supply` — Concept project detail
-- `/about` — About TellaMind
-- `/how-we-work` — Process
-- `/contact` — Project inquiry
-- `/privacy` — Privacy policy (approved business-specific wording required)
-- `/terms` — Terms (approved business-specific wording required)
-- `/404` — Helpful not-found page
+- `/`: Home
+- `/services`: Services overview
+- `/services/ai-automation`: AI Agents & Automation
+- `/services/websites-ecommerce`: Websites & E-commerce
+- `/services/apps-software`: Apps & Custom Software
+- `/services/social-creator-growth`: Social Media & Creator Growth
+- `/services/seo-digital-marketing`: SEO & Digital Marketing
+- `/services/brand-launch`: Brand & Business Launch
+- `/work`: Portfolio / concept projects
+- `/work/northstar-realty`: Concept project detail
+- `/work/morrow-care`: Concept project detail
+- `/work/goodkind-supply`: Concept project detail
+- `/about`: About TellaMind
+- `/how-we-work`: Process
+- `/contact`: Project inquiry
+- `/privacy`: Privacy policy (approved business-specific wording required)
+- `/terms`: Terms (approved business-specific wording required)
+- `/404`: Helpful not-found page
 
 **Future optional:** `/insights` blog, downloadable guides, industry-specific pages, live pricing page. MVP mein blog tabhi publish karein jab original useful articles ready hon.
 
@@ -287,7 +287,7 @@ Project detail template: concept badge → challenge/opportunity (fictional brie
 
 Include mission, Michigan base/worldwide delivery, working philosophy, honest team/company details, and link to services/process. Founder/team bios aur photographs tab add karein jab owner-provided and approved hon. Abhi stock headshots, invented founder biography, fake years/projects ya certifications use na karein.
 
-Suggested opening: “TellaMind is a Michigan-based digital studio for people building something that matters. We pair practical engineering with a thoughtful, human approach—so your digital presence feels like you and works hard behind the scenes.”
+Suggested opening: “TellaMind is a Michigan-based technology company for people building something that matters. We pair practical engineering with a thoughtful, human approach, so your digital presence feels like you and works hard behind the scenes.”
 
 ---
 
@@ -492,15 +492,15 @@ Developer handoff is ready for launch when:
 
 ## 11. Build phases
 
-### Phase 1 — Website MVP
+### Phase 1: Website MVP
 
 Home, services hub and detail pages, concept portfolio, About, process, Contact, FAQ, footer, responsive design, real form delivery, core SEO/privacy pages.
 
-### Phase 2 — Business setup
+### Phase 2: Business setup
 
 Bookable calendar, verified social profiles, approved real case studies, package pricing, analytics/privacy configuration, email/domain setup.
 
-### Phase 3 — Growth and advanced visuals
+### Phase 3: Growth and advanced visuals
 
 Insights/blog, industry landing pages, deeper SEO content, advanced interactions/3D elements, downloadable lead resources, client portal if demand supports it.
 

@@ -211,7 +211,7 @@ html[data-theme="light"] .service-card {
   border-color: #d9d0c0;
 }
 
-/* Light outer artwork frames for the three studio project cards. */
+/* Light outer artwork frames for the three project demo cards. */
 html[data-theme="light"] .project-art--automation {
   background: radial-gradient(circle at 82% 0, #f1dfb7, #eee9dc 54%, #e3ddd0);
   border-color: #d1c4a8;

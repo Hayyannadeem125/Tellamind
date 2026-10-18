@@ -1,4 +1,11 @@
 import React from 'react';
+import { publicAsset } from '../utils/publicAsset.js';
+
+function getTeamPhotoSrc(photoUrl) {
+  if (!photoUrl) return '';
+  if (/^(https?:)?\/\//i.test(photoUrl)) return photoUrl;
+  return publicAsset(photoUrl);
+}
 
 const teamFiles = import.meta.glob('../content/team-members/*.json', {
   eager: true,
@@ -18,7 +25,7 @@ export function TeamMembers() {
   return <section className="team-members section-wrap">
     <header><span>MEET THE PEOPLE</span><h2>The people behind <em>the work.</em></h2></header>
     <div className="team-member-grid">{pagesCmsMembers.map((member) => <article className="team-member-card" key={member.id}>
-      {member.photo_url ? <img src={member.photo_url} alt={member.name} loading="lazy"/> : <div className="team-member-placeholder" aria-hidden="true">{member.name.slice(0, 1)}</div>}
+      {member.photo_url ? <img src={getTeamPhotoSrc(member.photo_url)} alt={member.name} loading="lazy"/> : <div className="team-member-placeholder" aria-hidden="true">{member.name.slice(0, 1)}</div>}
       <div><h3>{member.name}</h3><span>{member.role}</span><p>{member.bio}</p>{member.experience && <p className="team-member-experience"><b>Experience</b> {member.experience}</p>}</div>
     </article>)}</div>
   </section>;
