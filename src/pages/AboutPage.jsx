@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Camera, Code2, Lightbulb, PackageCheck, PanelsTopLeft, Search, Share2, Sparkles, Workflow } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { Eyebrow, SectionHeading } from '../components/SectionHeading.jsx';
 import { CTASection } from '../components/CTASection.jsx';
 import { publicAsset } from '../utils/publicAsset.js';
+import { TellaMindMark } from '../components/TellaMindMark.jsx';
 
 const principles = [
   ['Start with people', 'Understand the customers and teams who will use the experience.'],
@@ -12,17 +13,17 @@ const principles = [
 ];
 
 const waysWeHelp = [
-  { icon: PanelsTopLeft, title: 'Bring an idea to life', text: 'Build a clear digital foundation with a website, app, online store, or launch-ready brand.' },
-  { icon: Workflow, title: 'Make work run smoother', text: 'Connect practical AI assistants, apps, and automations to reduce repetitive work.' },
-  { icon: Share2, title: 'Grow your social presence', text: 'Plan content, manage selected social channels, publish consistently, and understand what is working.' },
-  { icon: Camera, title: 'Support Snapchat creators', text: 'We help review public profiles, plan content, understand published eligibility guidance, and prepare organized application materials. Snapchat makes all approval and earnings decisions.' },
+  { title: 'Bring an idea to life', text: 'Build a clear digital foundation with a website, app, online store, or launch-ready brand.' },
+  { title: 'Make work run smoother', text: 'Connect practical AI assistants, apps, and automations to reduce repetitive work.' },
+  { title: 'Grow your social presence', text: 'Plan content, manage selected social channels, publish consistently, and understand what is working.' },
+  { title: 'Support Snapchat creators', text: 'We help review public profiles, plan content, understand published eligibility guidance, and prepare organized application materials. Snapchat makes all approval and earnings decisions.' },
 ];
 
 const workSteps = [
-  { icon: Search, title: 'Understand the challenge', text: 'We listen to what you want to improve, who it affects, and what a useful outcome would look like.' },
-  { icon: Lightbulb, title: 'Find a practical fit', text: 'We recommend the right service or combination of services, then agree on scope, timing, and responsibilities.' },
-  { icon: Code2, title: 'Build and review', text: 'We create the agreed work, share progress, and use feedback at clear review points.' },
-  { icon: PackageCheck, title: 'Launch and hand over', text: 'We help prepare for launch, transfer agreed access, and explain support options for what comes next.' },
+  { title: 'Understand the challenge', text: 'We listen to what you want to improve, who it affects, and what a useful outcome would look like.' },
+  { title: 'Find a practical fit', text: 'We recommend the right service or combination of services, then agree on scope, timing, and responsibilities.' },
+  { title: 'Build and review', text: 'We create the agreed work, share progress, and use feedback at clear review points.' },
+  { title: 'Launch and hand over', text: 'We help prepare for launch, transfer agreed access, and explain support options for what comes next.' },
 ];
 
 export function AboutPage() {
@@ -65,8 +66,8 @@ export function AboutPage() {
       <div className="section-wrap">
         <SectionHeading kicker="WHAT WE HELP WITH" title={<>Technology for the next <em>business step.</em></>} copy="We start with the outcome you need, then shape the digital work around it." />
         <div className="about-capability-grid">
-          {waysWeHelp.map(({ icon: Icon, title, text }) => <article className="about-capability-card" key={title}>
-            <div className="about-capability-top"><Icon size={23} strokeWidth={1.7} /></div>
+          {waysWeHelp.map(({ title, text }) => <article className="about-capability-card" key={title}>
+            <div className="about-capability-top"><TellaMindMark/></div>
             <h3>{title}</h3>
             <p>{text}</p>
           </article>)}
@@ -78,8 +79,8 @@ export function AboutPage() {
       <div className="section-wrap">
         <SectionHeading kicker="A CLEAR WAY FORWARD" title={<>From the challenge to a <em>working solution.</em></>} copy="You’ll know what we’re doing, what we need from you, and what happens at each stage." />
         <div className="about-workflow-grid">
-          {workSteps.map(({ icon: Icon, title, text }) => <article className="about-workflow-card" key={title}>
-            <span><Icon size={20} strokeWidth={1.8} /></span>
+          {workSteps.map(({ title, text }) => <article className="about-workflow-card" key={title}>
+            <span><TellaMindMark/></span>
             <h3>{title}</h3>
             <p>{text}</p>
           </article>)}

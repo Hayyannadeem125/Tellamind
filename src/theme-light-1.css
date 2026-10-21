@@ -1240,7 +1240,7 @@ html[data-theme="light"] .about-capability-card {
 html[data-theme="light"] .about-capability-card:hover { border-color: #b99b60; box-shadow: 0 16px 32px rgba(60, 46, 20, .12); }
 html[data-theme="light"] .about-capability-top { color: #805d22; }
 html[data-theme="light"] .about-capability-top>span { color: #8a6a31; }
-html[data-theme="light"] .about-capability-top>svg,
+html[data-theme="light"] .about-capability-top>.tellamind-mark-icon,
 html[data-theme="light"] .about-workflow-card>span {
   color: #76551d;
   border-color: #d8c69c;
