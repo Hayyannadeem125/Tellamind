@@ -948,7 +948,7 @@ a.footer-social-link:hover {
 .team-members>header h2 em{color:#d1ae5d;font-style:normal}
 .team-member-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
 .team-member-card{overflow:hidden;border:1px solid #40372b;border-radius:12px;background:linear-gradient(145deg,#171410,#100e0c)}
-.team-member-card>img,.team-member-placeholder{display:grid;width:100%;height:235px;object-fit:cover;place-items:center;background:radial-gradient(circle at 35% 28%,#594727,#211a11 66%);color:#e4bd66;font:600 54px Manrope,sans-serif}
+.team-member-card>img,.team-member-placeholder{display:grid;width:100%;height:235px;object-fit:cover;object-position:center 28%;place-items:center;background:radial-gradient(circle at 35% 28%,#594727,#211a11 66%);color:#e4bd66;font:600 54px Manrope,sans-serif}
 .team-member-card>div:last-child{padding:18px}
 .team-member-card h3{margin:0 0 5px;color:#fff0e0;font:700 16px Manrope,sans-serif}
 .team-member-card>div>span{color:#d1ae5d;font-size:11px;font-weight:600}
