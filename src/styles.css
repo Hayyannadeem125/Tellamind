@@ -1073,6 +1073,7 @@ a.footer-social-link:hover {
 .trust-item:hover{transform:translateY(-3px);border-color:#8b6c36;box-shadow:0 12px 26px #0004}
 .trust-item-icon{display:grid;place-items:center;flex:0 0 39px;width:39px;height:39px;border:1px solid #66502d;border-radius:11px;background:linear-gradient(145deg,#3a2d19,#211a10);color:#d1ae5d}
 .tellamind-mark-icon{display:block;width:23px;height:23px;object-fit:contain}
+.service-icon>.tellamind-mark-icon{width:27px;height:27px}
 .team-role-icon>.tellamind-mark-icon{width:27px;height:27px}
 .trust-item b{color:#f1dfc8;font:700 11px/1.25 Manrope,sans-serif}
 .trust-item small{font-size:8px}
