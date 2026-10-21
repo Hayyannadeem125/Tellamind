@@ -1,19 +1,18 @@
 import React from 'react';
-import { services, serviceCategories } from '../data.js';
+import { services } from '../data.js';
 import { ServiceCard } from './ServiceCard.jsx';
 
 export function ServiceGroups() {
-  return serviceCategories.map((category) => {
-    const groupedServices = services.filter((service) => service.category === category.slug);
+  const servicesForGrid = [...services];
+  const snapStarIndex = servicesForGrid.findIndex((service) => service.slug === 'snapstar-support');
+  const finalRowStart = Math.floor((servicesForGrid.length - 1) / 3) * 3;
 
-    return <section className="service-category" key={category.slug} aria-labelledby={`service-category-${category.slug}`}>
-      <div className="service-category-heading">
-        <h2 id={`service-category-${category.slug}`}>{category.title}</h2>
-        <p>{category.description}</p>
-      </div>
-      <div className="service-grid">
-        {groupedServices.map((service) => <ServiceCard key={service.slug} service={service}/>)}
-      </div>
-    </section>;
-  });
+  if (snapStarIndex > finalRowStart) {
+    const [snapStar] = servicesForGrid.splice(snapStarIndex, 1);
+    servicesForGrid.splice(finalRowStart, 0, snapStar);
+  }
+
+  return <div className="service-grid">
+    {servicesForGrid.map((service) => <ServiceCard key={service.slug} service={service}/>)}
+  </div>;
 }
