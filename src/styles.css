@@ -1094,18 +1094,22 @@ a.footer-social-link:hover {
 @media(max-width:420px){.trust-inner{grid-template-columns:1fr}.trust-brand{padding-bottom:7px}.trust-item{min-height:68px}}
 .footer-establishment{display:block;margin-top:2px;color:#D1AE5D;font-size:10px;font-weight:650;letter-spacing:.25px}
 
-/* A quiet, continuous preview of the services between the trust strip and cards. */
-.services-ticker{height:58px;overflow:hidden;border-block:1px solid #30271d;background:linear-gradient(90deg,#15120d,#100e0b 50%,#15120d)}
-.services-ticker-inner{width:min(1160px,calc(100% - 64px));height:100%;margin-inline:auto;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:25px}
-.services-ticker-label{color:#d1ae5d;font-size:8px;font-weight:750;letter-spacing:1.55px;white-space:nowrap}
-.services-ticker-viewport{min-width:0;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
-.services-ticker-track{display:flex;width:max-content;animation:servicesTickerScroll 48s linear infinite;will-change:transform}
+/* Branded service ticker between the homepage trust strip and service cards. */
+.services-ticker{height:92px;overflow:hidden;border-block:1px solid #4b3b24;background:radial-gradient(ellipse at 24% 50%,#d1ae5d12,transparent 42%),linear-gradient(100deg,#17130d,#100e0b 52%,#17130d)}
+.services-ticker-inner{width:min(1280px,calc(100% - 64px));height:100%;margin-inline:auto;display:grid;grid-template-columns:158px minmax(0,1fr);align-items:center;gap:23px}
+.services-ticker-label{height:49px;padding:0 12px;display:flex;align-items:center;gap:10px;border:1px solid #765d32;border-radius:13px;background:linear-gradient(145deg,#302516,#19140d);box-shadow:inset 0 1px #f6dfaa1a,0 7px 18px #0003;color:#e3c16d;font-size:9px;font-weight:750;letter-spacing:1.15px;white-space:nowrap}
+.services-ticker-label .tellamind-mark-icon{width:23px;height:23px;flex:0 0 23px}
+.services-ticker-viewport{min-width:0;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 2%,#000 98%,transparent)}
+.services-ticker-track{display:flex;width:max-content;animation:servicesTickerScroll 64s linear infinite;will-change:transform}
 .services-ticker-viewport:hover .services-ticker-track{animation-play-state:paused}
-.services-ticker-group{display:flex;flex:0 0 auto;align-items:center;gap:34px;padding-right:34px}
-.services-ticker-item{display:inline-flex;align-items:center;gap:10px;color:#e9dece;font-size:11px;font-weight:550;white-space:nowrap}
-.services-ticker-item i{width:5px;height:5px;flex:0 0 5px;border-radius:50%;background:#d1ae5d;box-shadow:0 0 10px #d1ae5d55}
+.services-ticker-group{display:flex;flex:0 0 auto;align-items:center;gap:13px;padding-right:13px}
+.services-ticker-item{min-height:50px;padding:0 17px;display:inline-flex;align-items:center;gap:12px;border:1px solid #514229;border-radius:13px;background:linear-gradient(145deg,#211b11,#15120d);box-shadow:inset 0 1px #ffffff08,0 5px 14px #0002;color:#f0e4d1;white-space:nowrap;transition:border-color .2s,background .2s}
+.services-ticker-item b{font:650 14px/1.2 Manrope,sans-serif;letter-spacing:-.25px}
+.services-ticker-number{width:25px;height:25px;display:grid;place-items:center;border:1px solid #735a2f;border-radius:8px;background:#332718;color:#dfbd68;font:700 8px/1 Manrope,sans-serif;font-style:normal;letter-spacing:.3px}
+.services-ticker-item:hover{border-color:#b38b42;background:linear-gradient(145deg,#2a2112,#19150e)}
 @keyframes servicesTickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(max-width:740px){.services-ticker{height:52px}.services-ticker-inner{width:calc(100% - 38px);gap:16px}.services-ticker-label{font-size:7px;letter-spacing:1px}.services-ticker-group{gap:23px;padding-right:23px}.services-ticker-item{font-size:10px;gap:8px}}
+@media(max-width:740px){.services-ticker{height:78px}.services-ticker-inner{width:calc(100% - 38px);grid-template-columns:122px minmax(0,1fr);gap:12px}.services-ticker-label{height:44px;padding:0 8px;gap:7px;border-radius:11px;font-size:7px;letter-spacing:.8px}.services-ticker-label .tellamind-mark-icon{width:20px;height:20px;flex-basis:20px}.services-ticker-group{gap:10px;padding-right:10px}.services-ticker-item{min-height:44px;padding:0 12px;gap:9px;border-radius:11px}.services-ticker-item b{font-size:12px}.services-ticker-number{width:22px;height:22px;border-radius:7px;font-size:7px}}
+@media(max-width:380px){.services-ticker-inner{width:calc(100% - 28px);grid-template-columns:105px minmax(0,1fr);gap:8px}.services-ticker-label{padding:0 6px;font-size:6.5px;letter-spacing:.5px}}
 @media(prefers-reduced-motion:reduce){.services-ticker-viewport{overflow-x:auto;scrollbar-width:none;mask-image:linear-gradient(90deg,#000 90%,transparent)}.services-ticker-viewport::-webkit-scrollbar{display:none}.services-ticker-track{animation:none;will-change:auto}.services-ticker-group:nth-child(2){display:none}}
 
 /* Branded, softly beveled TM badges inside the two hero status cards. */
