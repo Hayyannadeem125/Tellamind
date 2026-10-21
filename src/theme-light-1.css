@@ -241,6 +241,13 @@ html[data-theme="light"] .trust-strip {
   border-block: 1px solid #d9cbb5;
 }
 
+html[data-theme="light"] .services-ticker {
+  border-color: #ded2bd;
+  background: linear-gradient(90deg, #f5efe4, #eee7db 50%, #f5efe4);
+}
+html[data-theme="light"] .services-ticker-item { color: #514531; }
+html[data-theme="light"] .services-ticker-label { color: #80652f; }
+
 html[data-theme="light"] .trust-label,
 html[data-theme="light"] .trust-note {
   color: #66563c;
