@@ -257,6 +257,12 @@ html[data-theme="light"] .services-ticker-item {
   box-shadow: 0 5px 14px rgba(87, 64, 24, .055);
   color: #332b20;
 }
+html[data-theme="light"] .services-ticker-icon {
+  border-color: #d3bb84;
+  background: linear-gradient(145deg, #fffaf0, #efe2c8);
+  color: #806126;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .7);
+}
 html[data-theme="light"] .services-ticker-item:hover {
   border-color: #b99b60;
   background: linear-gradient(145deg, #fffdf8, #eee0c8);
