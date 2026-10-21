@@ -1,11 +1,12 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ArrowUpRight, ChevronDown, Menu, Moon, Sun, X } from 'lucide-react';
 import { services } from '../data.js';
 import { publicAsset } from '../utils/publicAsset.js';
 
 function readTheme() {
   try {
+    if (typeof window === 'undefined') return 'dark';
     const savedTheme = window.localStorage.getItem('tellamind-theme');
     return savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : 'dark';
   } catch {
@@ -39,9 +40,20 @@ function Logo() {
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
   const [servicesOpen, setServicesOpen] = React.useState(false);
-  const [theme, setTheme] = React.useState(readTheme);
-  React.useEffect(() => { applyTheme(theme); }, [theme]);
-  React.useEffect(() => { setOpen(false); setServicesOpen(false); }, [window.location.pathname]);
+  const [theme, setTheme] = React.useState('dark');
+  const initialThemeApplied = React.useRef(false);
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    if (!initialThemeApplied.current) {
+      initialThemeApplied.current = true;
+      const savedTheme = readTheme();
+      if (savedTheme !== theme) setTheme(savedTheme);
+      applyTheme(savedTheme);
+      return;
+    }
+    applyTheme(theme);
+  }, [theme]);
+  React.useEffect(() => { setOpen(false); setServicesOpen(false); }, [pathname]);
   React.useEffect(() => {
     const close = (event) => { if (event.key === 'Escape') { setOpen(false); setServicesOpen(false); } };
     window.addEventListener('keydown', close);

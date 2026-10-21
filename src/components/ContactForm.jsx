@@ -7,7 +7,7 @@ const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
 export function ContactForm() {
   const [state, setState] = React.useState({ status: 'idle', message: '' });
-  const requestedSlug = new URLSearchParams(window.location.search).get('service');
+  const requestedSlug = typeof window === 'undefined' ? null : new URLSearchParams(window.location.search).get('service');
   const initialService = services.find((service) => service.slug === requestedSlug)?.title || '';
   async function handleSubmit(event) {
     event.preventDefault();
