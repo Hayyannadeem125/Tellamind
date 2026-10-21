@@ -11,7 +11,7 @@ export function ServicesTicker() {
       <div className="services-ticker-viewport">
         <div className="services-ticker-track" aria-hidden="true">
           {[0, 1].map((copy) => <div className="services-ticker-group" key={copy}>
-            {serviceNames.map((name, index) => <span className="services-ticker-item" key={`${copy}-${name}`}><i className="services-ticker-number">{String(index + 1).padStart(2, '0')}</i><b>{name}</b></span>)}
+            {serviceNames.map((name) => <span className="services-ticker-item" key={`${copy}-${name}`}><TellaMindMark className="services-ticker-mark"/><b>{name}</b></span>)}
           </div>)}
         </div>
       </div>
