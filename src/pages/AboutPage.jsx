@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Eyebrow, SectionHeading } from '../components/SectionHeading.jsx';
 import { CTASection } from '../components/CTASection.jsx';
 import { publicAsset } from '../utils/publicAsset.js';
 import { TellaMindMark } from '../components/TellaMindMark.jsx';
+import { motion } from 'motion/react';
+import { Stagger, staggerItemVariants } from '../components/MotionEffects.jsx';
 
 const principles = [
   ['Start with people', 'Understand the customers and teams who will use the experience.'],
@@ -32,9 +34,6 @@ export function AboutPage() {
       <div className="about-art about-page-art" aria-hidden="true">
         <div className="about-grid-lines" />
         <div className="about-orb"><span /><span /><span /></div>
-        <div className="about-label label-top">THOUGHTFUL BY DESIGN</div>
-        <div className="about-label label-bottom"><span className="eyebrow-dot" /> HUMAN IDEAS. USEFUL TECHNOLOGY.</div>
-        <div className="about-mini-card"><Sparkles size={14} /><span>Clear thinking<br /><b>better building</b></span></div>
       </div>
       <div className="about-page-copy">
         <Eyebrow>ABOUT TELLAMIND</Eyebrow>
@@ -42,7 +41,7 @@ export function AboutPage() {
         <span className="about-established">Established in 2016 <i /> Michigan, USA</span>
         <p>TellaMind exists to make useful technology more practical and good digital products easier to access. We help people and businesses turn an idea or challenge into a clear next step.</p>
         <p>Based in Michigan, USA, we work with startups, shops, clinics, real estate teams, creators, and growing businesses worldwide.</p>
-        <Link className="button button-dark" to="/contact">Start a conversation <ArrowRight size={15} /></Link>
+        <Link className="button button-dark" to="/contact">Start a project <ArrowRight size={15} /></Link>
       </div>
     </section>
 
@@ -65,33 +64,33 @@ export function AboutPage() {
     <section className="about-capabilities">
       <div className="section-wrap">
         <SectionHeading kicker="WHAT WE HELP WITH" title={<>Technology for the next <em>business step.</em></>} copy="We start with the outcome you need, then shape the digital work around it." />
-        <div className="about-capability-grid">
-          {waysWeHelp.map(({ title, text }) => <article className="about-capability-card" key={title}>
+        <Stagger className="about-capability-grid">
+          {waysWeHelp.map(({ title, text }) => <motion.article variants={staggerItemVariants} className="about-capability-card" key={title}>
             <div className="about-capability-top"><TellaMindMark/></div>
             <h3>{title}</h3>
             <p>{text}</p>
-          </article>)}
-        </div>
+          </motion.article>)}
+        </Stagger>
       </div>
     </section>
 
     <section className="about-workflow">
       <div className="section-wrap">
         <SectionHeading kicker="A CLEAR WAY FORWARD" title={<>From the challenge to a <em>working solution.</em></>} copy="You’ll know what we’re doing, what we need from you, and what happens at each stage." />
-        <div className="about-workflow-grid">
-          {workSteps.map(({ title, text }) => <article className="about-workflow-card" key={title}>
+        <Stagger className="about-workflow-grid">
+          {workSteps.map(({ title, text }) => <motion.article variants={staggerItemVariants} className="about-workflow-card" key={title}>
             <span><TellaMindMark/></span>
             <h3>{title}</h3>
             <p>{text}</p>
-          </article>)}
-        </div>
+          </motion.article>)}
+        </Stagger>
       </div>
     </section>
 
     <section className="about-principles">
       <div className="section-wrap">
         <SectionHeading kicker="HOW WE SHOW UP" title={<>Clear thinking.<br /><em>Useful technology.</em></>} copy="We keep decisions and project expectations understandable from the first conversation to handoff." />
-        <div className="principle-grid">{principles.map(([title, copy]) => <article key={title}><h3>{title}</h3><p>{copy}</p></article>)}</div>
+        <Stagger className="principle-grid">{principles.map(([title, copy]) => <motion.article variants={staggerItemVariants} key={title}><h3>{title}</h3><p>{copy}</p></motion.article>)}</Stagger>
       </div>
     </section>
 
@@ -101,7 +100,7 @@ export function AboutPage() {
         <h2>Rooted in Michigan.<br /><em>Ready for anywhere.</em></h2>
         <p>TellaMind is based in Michigan, USA and works remotely with businesses worldwide. Project communication, time zones, and working arrangements are agreed at the start.</p>
       </div>
-      <div className="location-card"><span className="location-orb"><img src={publicAsset('tellamind-mark.svg')} alt="TellaMind logo" /></span><b>Michigan, USA</b><small>Remote projects worldwide</small></div>
+      <div className="location-card"><span className="location-orb"><svg viewBox="0 0 64 64" role="img" aria-label="TellaMind logo"><path d="M14 18h36M32 18v30M18 48V31l14 12 14-12v17" /></svg></span><b>Michigan, USA</b><small>Remote projects worldwide</small></div>
     </section>
     <CTASection />
   </>;

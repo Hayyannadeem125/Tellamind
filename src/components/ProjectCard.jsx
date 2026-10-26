@@ -3,6 +3,8 @@ import { ArrowUpRight, Bot, Check, Workflow } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { publicAsset } from '../utils/publicAsset.js';
 import { SnapchatGhostIcon } from './SnapchatGhostIcon.jsx';
+import { motion } from 'motion/react';
+import { staggerItemVariants } from './MotionEffects.jsx';
 
 function AutomationArtwork() {
   const stages = [
@@ -50,8 +52,8 @@ export function ProjectArtwork({ project }) {
 }
 
 export function ProjectCard({ project }) {
-  return <article className={`project-card project-card--${project.theme}`}>
+  return <motion.article variants={staggerItemVariants} className={`project-card project-card--${project.theme}`}>
     <Link to={`/work/${project.slug}`} className="project-art-link" aria-label={`Open ${project.name} project page`}><ProjectArtwork project={project}/></Link>
     <div className="project-details"><div><span>{project.badge} · {project.type}</span><h3><Link to={`/work/${project.slug}`}>{project.name}</Link></h3><p>{project.title}</p></div><Link to={`/work/${project.slug}`} aria-label={`Open ${project.name} project page`}><ArrowUpRight size={17}/></Link></div>
-  </article>;
+  </motion.article>;
 }

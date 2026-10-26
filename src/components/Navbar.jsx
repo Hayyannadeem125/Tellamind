@@ -74,7 +74,7 @@ export function Navbar() {
         <NavLink to="/contact" onClick={() => setOpen(false)}>Contact</NavLink>
       </nav>
       <button className="theme-toggle" type="button" onClick={() => setTheme(current => current === 'dark' ? 'light' : 'dark')} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`} aria-pressed={theme === 'light'}>{theme === 'dark' ? <Sun size={17} aria-hidden="true"/> : <Moon size={17} aria-hidden="true"/>}<span className="sr-only">{theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}</span></button>
-      <Link className="button button-dark nav-cta" to="/contact">Let’s talk <ArrowUpRight size={15}/></Link>
+      <Link className="button button-dark nav-cta" to="/contact">Start a project <ArrowUpRight size={15}/></Link>
       <button className="menu-toggle" aria-label={open ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button>
     </div></header>
   </>;

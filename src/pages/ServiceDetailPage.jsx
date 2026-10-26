@@ -28,8 +28,8 @@ export function ServiceDetailPage() {
         <h1>{service.title}<br/><em>built around your needs.</em></h1>
         <p>{service.intro}</p>
         {hasDedicatedInquiry
-          ? <a className="button button-dark" href={inquiryTarget}>Tell us about your project <ArrowRight size={15}/></a>
-          : <Link className="button button-dark" to={inquiryTarget}>Talk through your project <ArrowRight size={15}/></Link>}
+          ? <a className="button button-dark" href={inquiryTarget}>Start a project <ArrowRight size={15}/></a>
+          : <Link className="button button-dark" to={inquiryTarget}>Start a project <ArrowRight size={15}/></Link>}
       </div>
       <div className={`detail-icon-art${serviceImage ? ' detail-icon-art--image' : ''}${service.slug === 'websites-ecommerce' ? ' detail-icon-art--website' : ''}${service.slug === 'social-creator-growth' ? ' detail-icon-art--social' : ''}${service.slug === 'qa-software-testing' ? ' detail-icon-art--qa' : ''}${service.slug === 'meta-ads' ? ' detail-icon-art--meta-ads' : ''}`}>
         {serviceImage

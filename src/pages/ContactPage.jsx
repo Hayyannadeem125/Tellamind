@@ -4,15 +4,19 @@ import { Link } from 'react-router-dom';
 import { ContactForm } from '../components/ContactForm.jsx';
 import { Eyebrow } from '../components/SectionHeading.jsx';
 import { services } from '../data.js';
+import { ContactHeroOrbit } from '../components/ContactHeroOrbit.jsx';
 
 const bookingUrl = import.meta.env.VITE_BOOKING_URL;
 
 export function ContactPage() {
   return <>
-    <section className="contact-page-intro section-wrap">
-      <Eyebrow>YOUR NEXT STEP STARTS HERE</Eyebrow>
-      <h1>Tell us what you need <em>to build.</em></h1>
-      <p>Share a few details about your project. We’ll reply about the right service and next steps.</p>
+    <section className="contact-page-intro section-wrap contact-page-hero">
+      <div className="contact-page-hero-copy">
+        <Eyebrow>YOUR NEXT STEP STARTS HERE</Eyebrow>
+        <h1>Tell us what you need <em>to build.</em></h1>
+        <p>Share a few details about your project. We’ll reply about the right service and next steps.</p>
+      </div>
+      <ContactHeroOrbit />
     </section>
     <section className="contact-section contact-page-section">
       <div className="section-wrap contact-layout">

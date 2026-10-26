@@ -1,6 +1,7 @@
 import React from 'react';
 import { services } from '../data.js';
 import { ServiceCard } from './ServiceCard.jsx';
+import { Stagger } from './MotionEffects.jsx';
 
 export function ServiceGroups() {
   const servicesForGrid = [...services];
@@ -12,7 +13,7 @@ export function ServiceGroups() {
     servicesForGrid.splice(finalRowStart, 0, snapStar);
   }
 
-  return <div className="service-grid">
+  return <Stagger className="service-grid">
     {servicesForGrid.map((service) => <ServiceCard key={service.slug} service={service}/>)}
-  </div>;
+  </Stagger>;
 }

@@ -4,6 +4,11 @@ import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar.jsx';
 import { SiteFooter } from './components/SiteFooter.jsx';
 import { HomePage } from './pages/HomePage.jsx';
+import { getSeoMetadata } from './seo.js';
+import { AnimatePresence, MotionConfig, motion } from 'motion/react';
+import './styles.css';
+import './theme-light-1.css';
+
 const ServicesPage = React.lazy(() => import('./pages/ServicesPage.jsx').then((module) => ({ default: module.ServicesPage })));
 const ServiceDetailPage = React.lazy(() => import('./pages/ServiceDetailPage.jsx').then((module) => ({ default: module.ServiceDetailPage })));
 const WorkPage = React.lazy(() => import('./pages/WorkPage.jsx').then((module) => ({ default: module.WorkPage })));
@@ -14,9 +19,6 @@ const ProcessPage = React.lazy(() => import('./pages/ProcessPage.jsx').then((mod
 const ContactPage = React.lazy(() => import('./pages/ContactPage.jsx').then((module) => ({ default: module.ContactPage })));
 const LegalPage = React.lazy(() => import('./pages/LegalPage.jsx').then((module) => ({ default: module.LegalPage })));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage.jsx').then((module) => ({ default: module.NotFoundPage })));
-import { getSeoMetadata } from './seo.js';
-import './styles.css';
-import './theme-light-1.css';
 
 function ScrollAndTitle() {
   const { pathname } = useLocation();
@@ -50,13 +52,19 @@ function ScrollAndTitle() {
   return null;
 }
 
-function App() {
-  return <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || '/'}>
-    <ScrollAndTitle />
-    <Navbar/>
-    <main id="main-content">
-      <React.Suspense fallback={null}>
-        <Routes>
+function AnimatedRoutes() {
+  const location = useLocation();
+  return <AnimatePresence mode="wait" initial={false}>
+    <motion.div
+      className="route-motion"
+      key={location.pathname}
+      initial={{ opacity: 0, y: 7 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -5 }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
+    >
+      <React.Suspense fallback={<div className="route-loading" role="status">Loading page…</div>}>
+        <Routes location={location}>
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/:slug" element={<ServiceDetailPage />} />
@@ -71,9 +79,19 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </React.Suspense>
-    </main>
-    <SiteFooter />
-  </BrowserRouter>;
+    </motion.div>
+  </AnimatePresence>;
+}
+
+function App() {
+  return <MotionConfig reducedMotion="user">
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || '/'}>
+      <ScrollAndTitle />
+      <Navbar/>
+      <main id="main-content"><AnimatedRoutes/></main>
+      <SiteFooter />
+    </BrowserRouter>
+  </MotionConfig>;
 }
 
 const root = document.getElementById('root');

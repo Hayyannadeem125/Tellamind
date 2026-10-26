@@ -1286,3 +1286,125 @@ html[data-theme="light"] .footer-establishment { color: #805d22; }
 @media (prefers-reduced-motion: reduce) {
   html[data-theme="light"] .visual-orbit { animation: none !important; translate: none !important; }
 }
+
+/* Burnt amber is reserved for small highlights and interaction states in light mode. */
+html[data-theme="light"] .eyebrow-dot { background:#C8792C; box-shadow:0 0 0 4px #C8792C24; }
+html[data-theme="light"] .nav-links a:hover,
+html[data-theme="light"] .nav-dropdown-wrap:focus-within>.nav-dropdown-trigger { color:#9F591F; }
+html[data-theme="light"] .button-outline:hover { border-color:#C8792C; background:#F7E8D9; color:#70431F; }
+html[data-theme="light"] .theme-toggle:hover,
+html[data-theme="light"] .theme-toggle:focus-visible { border-color:#C8792C; }
+html[data-theme="light"] .service-card-link:hover .card-arrow,
+html[data-theme="light"] .service-card-link:focus-visible .card-arrow { color:#9F591F; }
+html[data-theme="light"] .about-established i { background:#C8792C; }
+html[data-theme="light"] .about-home-art .about-mini-card>svg { color:#9F591F; }
+html[data-theme="light"] a.footer-social-link:hover { border-color:#C8792C; background:#F3E1CE; color:#70431F; }
+html[data-theme="light"] .contact-specialized-links a:hover { color:#9F591F; }
+html[data-theme="light"] .contact-form input[type="checkbox"],
+html[data-theme="light"] .service-inquiry-consent input,
+html[data-theme="light"] .snap-intake-check input { accent-color:#C8792C; }
+
+/* Keep the Mocha Brown, Champagne Gold and Burnt Amber palette visible in light mode. */
+html[data-theme="light"] .button-dark {
+  background:linear-gradient(135deg,#D58B46,#C8792C);
+  color:#1A1008;
+  box-shadow:0 9px 26px #C8792C35;
+}
+html[data-theme="light"] .button-dark:hover {
+  background:linear-gradient(135deg,#E39B52,#C8792C);
+  color:#1A1008;
+}
+html[data-theme="light"] .hero h1 em { color:#C8792C; }
+html[data-theme="light"] .section-heading h2 em,
+html[data-theme="light"] .about-copy h2 em,
+html[data-theme="light"] .pricing-copy h2 em,
+html[data-theme="light"] .contact-copy h2 em { color:#5B4632; }
+html[data-theme="light"] .service-card,
+html[data-theme="light"] .about-capability-card,
+html[data-theme="light"] .about-workflow-card {
+  border-color:#CBB99F;
+  background:linear-gradient(145deg,#FFF9EF,#F4D9A0);
+  box-shadow:0 14px 34px #5B46321A;
+}
+html[data-theme="light"] .service-card-link:hover .service-card,
+html[data-theme="light"] .service-card-link:focus-visible .service-card {
+  border-color:#C8792C;
+  background:linear-gradient(145deg,#FFF5E5,#F4D9A0);
+  box-shadow:0 18px 38px #C8792C26;
+}
+html[data-theme="light"] .service-card h3,
+html[data-theme="light"] .about-capability-card h3,
+html[data-theme="light"] .about-workflow-card h3 { color:#5B4632; }
+html[data-theme="light"] .service-icon {
+  border:1px solid #C8792C;
+  background:linear-gradient(145deg,#5B4632,#463522);
+  color:#F4D9A0;
+}
+html[data-theme="light"] .tag-list span {
+  border-color:#C8792C;
+  background:#F4D9A0;
+  color:#5B4632;
+}
+
+/* Mocha headlines and Champagne Gold accents for the light palette. */
+html[data-theme="light"] .hero h1,
+html[data-theme="light"] .hero h1 em,
+html[data-theme="light"] .section-heading h2 em,
+html[data-theme="light"] .about-copy h2 em,
+html[data-theme="light"] .pricing-copy h2 em,
+html[data-theme="light"] .contact-copy h2 em,
+html[data-theme="light"] .page-hero h1,
+html[data-theme="light"] .page-hero h1 em,
+html[data-theme="light"] .detail-hero h1 em,
+html[data-theme="light"] .project-detail-hero h1 em,
+html[data-theme="light"] .team-hero-copy h1 em,
+html[data-theme="light"] .team-commitment h2 em,
+html[data-theme="light"] .about-story-copy h2 em { color:#5B4632; }
+
+/* Service detail subhead: blend the requested Champagne Gold and Michigan Blue. */
+html:not([data-theme="light"]) .detail-hero h1 em,
+html[data-theme="light"] .detail-hero h1 em {
+  color: transparent;
+  background: linear-gradient(105deg, #F4D9A0 0%, #F4D9A0 66%, #1B2D4B 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: .25px rgba(244, 217, 160, .2);
+  filter: drop-shadow(0 1px 5px rgba(244, 217, 160, .12));
+}
+html[data-theme="light"] .button-dark {
+  background:linear-gradient(135deg,#FFF0C9,#F4D9A0 72%,#D7B875);
+  color:#3A2819;
+  box-shadow:0 9px 26px #C8792C35;
+}
+html[data-theme="light"] .button-dark:hover {
+  background:linear-gradient(135deg,#FFF5DA,#F4D9A0 72%,#D7B875);
+  color:#3A2819;
+}
+html[data-theme="light"] .location-orb {
+  color:#5B4632;
+  background:linear-gradient(145deg,#F4D9A0 0%,#C8792C 100%);
+  border:1px solid #C8792C;
+  box-shadow:0 10px 24px #C8792C35, inset 0 1px #FFF5D8;
+}
+html[data-theme="light"] .hero-title-gradient {
+  display:block;
+  background:linear-gradient(105deg,#5B4632 0%,#9F591F 56%,#C8792C 100%);
+  background-clip:text;
+  -webkit-background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+}
+html[data-theme="light"] .hero-title-gradient em {
+  color:transparent!important;
+  -webkit-text-fill-color:transparent;
+}
+
+/* The About hero's emphasized phrase uses the Michigan navy in light mode too. */
+html[data-theme="light"] .about-page-copy h1 em {
+  color: transparent !important;
+  background: linear-gradient(100deg, #1B2D4B 0%, #2B4262 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+}
