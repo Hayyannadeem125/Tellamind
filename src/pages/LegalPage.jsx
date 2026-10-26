@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Eyebrow } from '../components/SectionHeading.jsx';
 
 const formspreeConfigured = Boolean(import.meta.env.VITE_FORMSPREE_ENDPOINT);
+const trackerConfigured = Boolean(import.meta.env.VITE_INQUIRY_WEBHOOK_URL);
 
 function PrivacyPolicy() {
   return <>
@@ -17,7 +18,9 @@ function PrivacyPolicy() {
     <p>We use inquiry information to respond to you, understand the work you are asking about, prepare a proposal, communicate about an active project, and protect or administer our business. We do not use inquiry information for automated decisions, and we do not add people to a marketing list through these forms.</p>
 
     <h2>How forms and email work</h2>
-    {formspreeConfigured
+    {trackerConfigured
+      ? <p>When you submit a website form, the information is sent to TellaMind through a Google Apps Script endpoint and saved in our private Google Sheets client tracker. A notification is sent to tellamindwork@gmail.com. Google processes this information as the provider of these services. Your email address is used to reply to your inquiry. See <a href="https://policies.google.com/privacy" target="_blank" rel="noreferrer">Google’s Privacy Policy</a>.</p>
+      : formspreeConfigured
       ? <p>When you submit a website form, the information is sent to TellaMind through Formspree, which processes the submission and can send a notification to tellamindwork@gmail.com. Formspree may process or retain submission data under its own terms and privacy practices. TellaMind also receives and handles the inquiry through Google-hosted email. Your email address is used to reply to you. See <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noreferrer">Formspree’s Privacy Policy</a>.</p>
       : <p>Website forms are not yet connected to a direct submission service. Submitting one opens your email application with a message for you to review and send; the website does not send or store that message. TellaMind receives inquiries at tellamindwork@gmail.com, which is hosted by Google. Your own email provider will also process any message you choose to send.</p>}
 

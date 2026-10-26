@@ -2,8 +2,8 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { services } from '../data.js';
+import { inquiryEndpoint as endpoint, submitInquiry } from '../lib/submitInquiry.js';
 
-const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
 const inquiryConfig = {
   'ai-automation': {
@@ -143,8 +143,7 @@ export function ServiceInquiryForm({ serviceSlug }) {
 
     if (endpoint) {
       try {
-        const response = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (!response.ok) throw new Error('Form submission failed.');
+        await submitInquiry(data);
         form.reset();
         setState({ status: 'success', message: 'Thanks. Your project inquiry has been sent to TellaMind.' });
       } catch {
@@ -162,6 +161,7 @@ export function ServiceInquiryForm({ serviceSlug }) {
 
   return <section className="service-inquiry-wrap section-wrap" id="service-inquiry">
     <form className="service-inquiry-form" onSubmit={handleSubmit}>
+      <input type="text" name="_gotcha" hidden tabIndex={-1} autoComplete="off" />
       <div className="service-inquiry-header"><div><span>{config.kicker}</span><h2>{config.title}</h2><p>{config.intro}</p></div></div>
       <div className="service-inquiry-section-label">YOUR CONTACT DETAILS</div>
       <div className="service-inquiry-grid service-inquiry-contact">

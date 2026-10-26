@@ -41,6 +41,8 @@ jobs:
       - name: Build Vite site
         env:
           VITE_FORMSPREE_ENDPOINT: ${{ vars.VITE_FORMSPREE_ENDPOINT }}
+          VITE_INQUIRY_WEBHOOK_URL: ${{ vars.VITE_INQUIRY_WEBHOOK_URL }}
+          VITE_BOOKING_URL: ${{ vars.VITE_BOOKING_URL }}
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v6
