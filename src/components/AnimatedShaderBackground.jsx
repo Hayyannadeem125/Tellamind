@@ -101,15 +101,17 @@ export function AnimatedShaderBackground() {
       time: gl.getUniformLocation(program, 'time'),
     };
     const pointer = [0.5, 0.5];
+    const targetPointer = [0.5, 0.5];
     let frame = 0;
     let visible = true;
     let scrolling = false;
     let scrollTimer = 0;
     let disposed = false;
     let lastRenderAt = 0;
-    const startedAt = performance.now();
+    let lastClockAt = 0;
+    let shaderTime = 0;
 
-    const render = (now = startedAt) => {
+    const render = (now = performance.now()) => {
       if (disposed || !visible || scrolling) return;
       if (document.visibilityState === 'hidden') {
         frame = 0;
@@ -120,20 +122,25 @@ export function AnimatedShaderBackground() {
         return;
       }
       lastRenderAt = now;
+      if (lastClockAt) shaderTime += (now - lastClockAt) * 0.001;
+      lastClockAt = now;
+      pointer[0] += (targetPointer[0] - pointer[0]) * 0.18;
+      pointer[1] += (targetPointer[1] - pointer[1]) * 0.18;
       gl.useProgram(program);
       gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
       gl.enableVertexAttribArray(position);
       gl.vertexAttribPointer(position, 2, gl.FLOAT, false, 0, 0);
       gl.uniform2f(uniforms.resolution, canvas.width, canvas.height);
       gl.uniform2f(uniforms.pointer, pointer[0], pointer[1]);
-      gl.uniform1f(uniforms.time, reduceMotion ? 0 : (now - startedAt) * 0.001);
+      gl.uniform1f(uniforms.time, reduceMotion ? 0 : shaderTime);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       if (!reduceMotion) frame = requestAnimationFrame(render);
     };
 
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 1);
+      // The soft, masked texture does not need a full-resolution framebuffer.
+      const dpr = Math.min(window.devicePixelRatio || 1, 0.8);
       canvas.width = Math.max(1, Math.round(rect.width * dpr));
       canvas.height = Math.max(1, Math.round(rect.height * dpr));
       gl.viewport(0, 0, canvas.width, canvas.height);
@@ -142,15 +149,17 @@ export function AnimatedShaderBackground() {
 
     const onPointerMove = (event) => {
       const rect = canvas.getBoundingClientRect();
-      pointer[0] = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width));
-      pointer[1] = 1 - Math.min(1, Math.max(0, (event.clientY - rect.top) / rect.height));
+      targetPointer[0] = Math.min(1, Math.max(0, (event.clientX - rect.left) / rect.width));
+      targetPointer[1] = 1 - Math.min(1, Math.max(0, (event.clientY - rect.top) / rect.height));
     };
     const onVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') lastClockAt = 0;
       if (document.visibilityState === 'visible' && !reduceMotion && visible && !scrolling && !frame) frame = requestAnimationFrame(render);
     };
     const onScroll = () => {
       if (reduceMotion || disposed) return;
       scrolling = true;
+      lastClockAt = 0;
       if (frame) cancelAnimationFrame(frame);
       frame = 0;
       window.clearTimeout(scrollTimer);
