@@ -1807,3 +1807,13 @@ html[data-theme="light"] .contact-hero-orbit-core{background:linear-gradient(145
 @media(max-width:740px){.contact-page-hero{grid-template-columns:1fr;gap:4px;padding-top:55px;padding-bottom:30px}.contact-page-hero-copy>p{font-size:14px}.contact-hero-orbit{height:310px;margin:0 -12px}.contact-hero-orbit-core{width:126px;height:126px;border-radius:34px}.contact-hero-orbit-mark{width:38px;height:38px}.contact-hero-orbit-ring{width:88%;height:43%}.contact-hero-orbit-ring-two{width:67%;height:74%}}
 @media(max-width:390px){.contact-hero-orbit{height:280px;margin:0 -18px}}
 @media(prefers-reduced-motion:reduce){.contact-hero-orbit-ring{animation:none!important}}
+
+/* Keep homepage sections close enough that fast scrolling does not expose
+   a viewport-sized stretch of plain mocha between content blocks. */
+@media (min-width: 741px) {
+  .home-page > .services { padding-top: 76px; padding-bottom: 78px; }
+  .home-page > .work-section { padding: 68px 0 62px; }
+  .home-page > .about-section { padding-top: 68px; padding-bottom: 76px; gap: 72px; }
+  .home-page > .process-section { padding: 68px 0 72px; }
+  .home-page > .pricing { padding-top: 62px; padding-bottom: 62px; }
+}
