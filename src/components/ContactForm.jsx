@@ -2,8 +2,8 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { services } from '../data.js';
+import { inquiryEndpoint as endpoint, submitInquiry } from '../lib/submitInquiry.js';
 
-const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
 export function ContactForm() {
   const [state, setState] = React.useState({ status: 'idle', message: '' });
@@ -17,8 +17,7 @@ export function ContactForm() {
     setState({ status: 'sending', message: 'Sending your inquiry…' });
     if (endpoint) {
       try {
-        const response = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (!response.ok) throw new Error('The form service did not accept this submission.');
+        await submitInquiry(data);
         form.reset();
         setState({ status: 'success', message: 'Thanks. Your inquiry has been sent to TellaMind.' });
       } catch {
@@ -31,6 +30,7 @@ export function ContactForm() {
     setState({ status: 'fallback', message: 'Your email app should open with the inquiry ready to review and send. If it does not, email tellamindwork@gmail.com.' });
   }
   return <form className="contact-form" onSubmit={handleSubmit}>
+    <input type="text" name="_gotcha" hidden tabIndex={-1} autoComplete="off" />
     <div className="form-heading"><b>Share a few project details</b><span>About 2 minutes</span></div>
     <label>Your name<input required name="name" autoComplete="name" placeholder="Your name" /></label>
     <label>Work email<input required name="email" type="email" autoComplete="email" placeholder="Your Email" /></label>

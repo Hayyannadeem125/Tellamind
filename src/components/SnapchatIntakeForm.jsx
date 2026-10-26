@@ -1,8 +1,8 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { inquiryEndpoint as endpoint, submitInquiry } from '../lib/submitInquiry.js';
 
-const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
 export function SnapchatIntakeForm() {
   const [state, setState] = React.useState({ status: 'idle', message: '' });
@@ -17,8 +17,7 @@ export function SnapchatIntakeForm() {
 
     if (endpoint) {
       try {
-        const response = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (!response.ok) throw new Error('Form submission failed.');
+        await submitInquiry(data);
         form.reset();
         setState({ status: 'success', message: 'Thanks. Your Snapchat readiness request has been sent to TellaMind.' });
       } catch {
@@ -43,6 +42,7 @@ export function SnapchatIntakeForm() {
   }
 
   return <form className="snap-intake-form" id="snapchat-intake" onSubmit={handleSubmit}>
+    <input type="text" name="_gotcha" hidden tabIndex={-1} autoComplete="off" />
     <div className="snap-intake-heading">
       <div><span className="snap-readiness-kicker">PRIVATE READINESS INQUIRY</span><h3>Tell us where your creator profile stands.</h3></div>
       <p>Share the numbers shown in Snapchat Insights for the last 28 days. We’ll use them to understand what kind of preparation may help.</p>
