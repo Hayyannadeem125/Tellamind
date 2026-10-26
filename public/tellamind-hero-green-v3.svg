@@ -2,18 +2,21 @@
   <style>
     .hero-cube-main { transform-box: fill-box; transform-origin: center; animation: hero-main-float 4.8s ease-in-out infinite; }
     .hero-cube-small { transform-box: fill-box; transform-origin: center; animation-duration: 5.1s; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
-    .hero-orbit-lines { transform-box: view-box; transform-origin: 50% 48%; will-change: transform; animation: hero-orbits-turn 15s linear infinite; }
+    .hero-orbit-flow { fill: none; stroke: #D6E4C4; stroke-width: 2; stroke-linecap: round; }
+    .hero-orbit-flow ellipse { stroke-dasharray: 46 355; animation: orbit-tracer-travel 4s linear infinite; will-change: stroke-dashoffset; }
+    .hero-orbit-flow ellipse:nth-child(2) { animation-duration: 4.5s; animation-delay: -1.6s; opacity: .72; }
+    .hero-orbit-flow ellipse:nth-child(3) { animation-duration: 3.6s; animation-delay: -2.2s; opacity: .58; }
     .hero-cube-small-1 { animation-name: hero-cube-path-1; }
     .hero-cube-small-2 { animation-name: hero-cube-path-2; animation-delay: -1.4s; }
     .hero-cube-small-3 { animation-name: hero-cube-path-3; animation-delay: -2.8s; }
     .hero-cube-small-4 { animation-name: hero-cube-path-4; animation-delay: -4.2s; }
     @keyframes hero-main-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
-    @keyframes hero-orbits-turn { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes orbit-tracer-travel { to { stroke-dashoffset: -401; } }
     @keyframes hero-cube-path-1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-7px,-11px) rotate(-2deg); } }
     @keyframes hero-cube-path-2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(7px,-10px) rotate(2deg); } }
     @keyframes hero-cube-path-3 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(7px,9px) rotate(-2deg); } }
     @keyframes hero-cube-path-4 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-7px,8px) rotate(2deg); } }
-    @media (prefers-reduced-motion: reduce) { .hero-cube-main, .hero-cube-small, .hero-orbit-lines { animation: none !important; } }
+    @media (prefers-reduced-motion: reduce) { .hero-cube-main, .hero-cube-small, .hero-orbit-flow ellipse { animation: none !important; } }
   </style>
   <defs>
     <radialGradient id="glow"><stop stop-color="#548466" stop-opacity=".32"/><stop offset="1" stop-color="#548466" stop-opacity="0"/></radialGradient>
@@ -55,6 +58,11 @@
     <ellipse cx="455" cy="365" rx="342" ry="138" transform="rotate(-25 455 365)"/>
     <ellipse cx="455" cy="365" rx="342" ry="138" transform="rotate(35 455 365)"/>
     <ellipse cx="455" cy="365" rx="275" ry="180" transform="rotate(90 455 365)" stroke-opacity=".13"/>
+  </g>
+  <g class="hero-orbit-flow" stroke-opacity=".76">
+    <ellipse cx="455" cy="365" rx="342" ry="138" transform="rotate(-25 455 365)"/>
+    <ellipse cx="455" cy="365" rx="342" ry="138" transform="rotate(35 455 365)"/>
+    <ellipse cx="455" cy="365" rx="275" ry="180" transform="rotate(90 455 365)"/>
   </g>
   <g filter="url(#shadow)">
     <g class="hero-cube-main"><use href="#cube-forest" transform="translate(455 335) scale(1.22)"/></g>

@@ -11,11 +11,11 @@ import { CTASection } from '../components/CTASection.jsx';
 import { TellaMindMark } from '../components/TellaMindMark.jsx';
 import { ServicesTicker } from '../components/ServicesTicker.jsx';
 import { motion } from 'motion/react';
-import { heroItemVariants, heroStaggerVariants, Stagger } from '../components/MotionEffects.jsx';
+import { heroItemVariants, Stagger } from '../components/MotionEffects.jsx';
 import { AnimatedShaderBackground } from '../components/AnimatedShaderBackground.jsx';
 
 function HeroVisual() {
-  return <motion.div className="hero-visual" initial={{ opacity: 0, x: 16, scale: 0.98 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}>
+  return <div className="hero-visual">
     <AnimatedShaderBackground />
     <div className="visual-orbit orbit-one" />
     <div className="visual-orbit orbit-two" />
@@ -23,12 +23,12 @@ function HeroVisual() {
     <img className="hero-object hero-object-default" src={publicAsset('tellamind-hero-v3.svg')} alt="Animated cube illustration with orbital paths" />
     <img className="hero-object hero-object-light" src={publicAsset('tellamind-hero-green-v3.svg')} alt="Animated green cube illustration with orbital paths" />
     <span className="floating-star star-b">✦</span>
-  </motion.div>;
+  </div>;
 }
 
 export function HomePage() {
   return <div className="home-page">
-    <section className="hero section-wrap"><motion.div className="hero-copy" variants={heroStaggerVariants} initial="hidden" animate="visible"><motion.div className="eyebrow" variants={heroItemVariants}><span className="eyebrow-dot"/> DIGITAL PRODUCTS. SMARTER WORK.</motion.div><motion.h1 variants={heroItemVariants}><span className="hero-title-gradient">Websites, apps & AI that help your business <em>move forward.</em></span></motion.h1><motion.p className="hero-lede" variants={heroItemVariants}>We help startups, shops, clinics, real estate teams, and creators launch online and reduce repetitive work.</motion.p><motion.div className="hero-actions" variants={heroItemVariants}><Link className="button button-dark" to="/contact">Start a project <ArrowRight size={16}/></Link><Link className="text-link" to="/work"><span className="play-circle"><Play size={11} fill="currentColor"/></span> Explore our projects</Link></motion.div><motion.div className="hero-meta" variants={heroItemVariants}><div className="hero-brand-mini" aria-hidden="true"><img src={publicAsset('tellamind-mark.svg')} alt=""/></div><p><b>Clear scope.</b><br/>Useful technology, built around your goals.</p><span className="meta-divider"/><p className="meta-location">Based in Michigan<br/>Working worldwide <ArrowUpRight size={12}/></p></motion.div></motion.div><HeroVisual/><Link className="scroll-cue" to="/services"><ArrowDown size={13}/> EXPLORE SERVICES</Link></section>
+    <section className="hero section-wrap"><div className="hero-copy"><div className="eyebrow"><span className="eyebrow-dot"/> DIGITAL PRODUCTS. SMARTER WORK.</div><h1><span className="hero-title-gradient">Websites, apps & AI that help your business <em>move forward.</em></span></h1><p className="hero-lede">We help startups, shops, clinics, real estate teams, and creators launch online and reduce repetitive work.</p><div className="hero-actions"><Link className="button button-dark" to="/contact">Start a project <ArrowRight size={16}/></Link><Link className="text-link" to="/work"><span className="play-circle"><Play size={11} fill="currentColor"/></span> Explore our projects</Link></div><div className="hero-meta"><div className="hero-brand-mini" aria-hidden="true"><img src={publicAsset('tellamind-mark.svg')} alt=""/></div><p><b>Clear scope.</b><br/>Useful technology, built around your goals.</p><span className="meta-divider"/><p className="meta-location">Based in Michigan<br/>Working worldwide <ArrowUpRight size={12}/></p></div></div><HeroVisual/><Link className="scroll-cue" to="/services"><ArrowDown size={13}/> EXPLORE SERVICES</Link></section>
     <section className="trust-strip"><div className="section-wrap trust-inner">
       <div className="trust-brand"><img src={publicAsset('tellamind-mark.svg')} alt="TellaMind"/><div><span className="trust-label">BUILT FOR WHAT’S NEXT</span><b>Technology that moves work forward</b><small>For startups, teams & creators</small></div></div>
       <article className="trust-item"><span className="trust-item-icon"><TellaMindMark/></span><div><b>Smarter operations</b><small>AI and automation for everyday work</small></div></article>
