@@ -5,7 +5,7 @@ import { Navbar } from './components/Navbar.jsx';
 import { SiteFooter } from './components/SiteFooter.jsx';
 import { HomePage } from './pages/HomePage.jsx';
 import { getSeoMetadata } from './seo.js';
-import { AnimatePresence, MotionConfig, motion } from 'motion/react';
+import { MotionConfig } from 'motion/react';
 import './styles.css';
 import './theme-light-1.css';
 
@@ -54,33 +54,22 @@ function ScrollAndTitle() {
 
 function AnimatedRoutes() {
   const location = useLocation();
-  return <AnimatePresence mode="wait" initial={false}>
-    <motion.div
-      className="route-motion"
-      key={location.pathname}
-      initial={{ opacity: 0, y: 7 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -5 }}
-      transition={{ duration: 0.2, ease: 'easeOut' }}
-    >
-      <React.Suspense fallback={<div className="route-loading" role="status">Loading page…</div>}>
-        <Routes location={location}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/services/:slug" element={<ServiceDetailPage />} />
-          <Route path="/work" element={<WorkPage />} />
-          <Route path="/work/:slug" element={<ProjectDetailPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/team" element={<TeamPage />} />
-          <Route path="/how-we-work" element={<ProcessPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/privacy" element={<LegalPage kind="privacy" />} />
-          <Route path="/terms" element={<LegalPage kind="terms" />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </React.Suspense>
-    </motion.div>
-  </AnimatePresence>;
+  return <React.Suspense fallback={<div className="route-loading" role="status">Loading page…</div>}>
+    <Routes location={location}>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/services" element={<ServicesPage />} />
+      <Route path="/services/:slug" element={<ServiceDetailPage />} />
+      <Route path="/work" element={<WorkPage />} />
+      <Route path="/work/:slug" element={<ProjectDetailPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/team" element={<TeamPage />} />
+      <Route path="/how-we-work" element={<ProcessPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      <Route path="/privacy" element={<LegalPage kind="privacy" />} />
+      <Route path="/terms" element={<LegalPage kind="terms" />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+  </React.Suspense>;
 }
 
 function App() {

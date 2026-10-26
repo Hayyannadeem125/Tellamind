@@ -72,8 +72,6 @@ body{background:#080706;color:#F4E0CD}
 .hero-object{transform-style:preserve-3d;backface-visibility:hidden;animation:none;transition:filter .4s ease}
 .hero-visual:hover .hero-object{filter:drop-shadow(0 38px 75px #F4D9A030)}
 @keyframes heroCube3D{0%,100%{transform:translate3d(0,0,0) rotateX(1deg) rotateY(-2deg)}50%{transform:translate3d(0,-13px,18px) rotateX(-3deg) rotateY(4deg)}}
-.page-hero,.detail-hero,.project-detail-hero,.about-page-hero,.contact-page-intro,.team-hero{animation:pageEnter .55s cubic-bezier(.2,.7,.2,1) both}
-@keyframes pageEnter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .service-card,.team-role-card,.project-card,.button,.text-link{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease,color .2s ease,background .2s ease}
 .service-card{transition:border-color .25s ease,background .25s ease,box-shadow .25s ease,color .2s ease}
 .service-card-link:hover .service-card,.service-card-link:focus-visible .service-card{transform:none;border-color:#A9823F;background:linear-gradient(145deg,#211a10,#15110b);box-shadow:0 18px 42px #0007,0 0 0 1px #F4D9A01c}

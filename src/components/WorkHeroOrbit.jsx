@@ -14,9 +14,9 @@ export function WorkHeroOrbit() {
     <div className="work-orbit-ring work-orbit-ring-three"><i /></div>
     <motion.div
       className="work-orbit-core"
-      initial={reduceMotion ? false : { opacity: 0, scale: 0.88 }}
+      initial={false}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0 }}
     >
       <TellaMindMark className="work-orbit-mark" />
       <span>Ideas in motion</span>

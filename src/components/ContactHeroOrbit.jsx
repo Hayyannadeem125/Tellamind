@@ -19,9 +19,9 @@ export function ContactHeroOrbit() {
     />
     <motion.div
       className="contact-hero-orbit-core"
-      initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
+      initial={false}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0 }}
     >
       <TellaMindMark className="contact-hero-orbit-mark" />
       <span>LET’S TALK</span>

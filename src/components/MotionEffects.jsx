@@ -1,24 +1,23 @@
 import React from 'react';
-import { motion } from 'motion/react';
-
-const easeOut = [0.22, 1, 0.36, 1];
 
 export const staggerItemVariants = {
-  hidden: { opacity: 0, y: 14 },
+  // Keep content visible from first paint; reveal-on-scroll caused blank gaps
+  // when users scrolled quickly through long pages.
+  hidden: { opacity: 1, y: 0 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.48, ease: easeOut },
+    transition: { duration: 0 },
   },
 };
 
 export function Reveal({ as = 'div', children, className, ...props }) {
-  const Element = motion[as] || motion.div;
+  const Element = as;
   return <Element className={className} {...props}>{children}</Element>;
 }
 
 export function Stagger({ as = 'div', children, className, ...props }) {
-  const Element = motion[as] || motion.div;
+  const Element = as;
   return <Element className={className} {...props}>{children}</Element>;
 }
 
@@ -28,6 +27,6 @@ export const heroStaggerVariants = {
 };
 
 export const heroItemVariants = {
-  hidden: { opacity: 0, y: 13 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } },
+  hidden: { opacity: 1, y: 0 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0 } },
 };

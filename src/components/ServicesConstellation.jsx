@@ -19,9 +19,9 @@ export function ServicesConstellation() {
     />
     <motion.div
       className="services-constellation-core"
-      initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
+      initial={false}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0 }}
     >
       <TellaMindMark className="services-constellation-mark" />
       <span>Thoughtful technology</span>
