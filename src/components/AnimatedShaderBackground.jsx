@@ -103,17 +103,19 @@ export function AnimatedShaderBackground() {
     const pointer = [0.5, 0.5];
     let frame = 0;
     let visible = true;
+    let scrolling = false;
+    let scrollTimer = 0;
     let disposed = false;
     let lastRenderAt = 0;
     const startedAt = performance.now();
 
     const render = (now = startedAt) => {
-      if (disposed || !visible) return;
+      if (disposed || !visible || scrolling) return;
       if (document.visibilityState === 'hidden') {
         frame = 0;
         return;
       }
-      if (!reduceMotion && now - lastRenderAt < 1000 / 30) {
+      if (!reduceMotion && now - lastRenderAt < 1000 / 24) {
         frame = requestAnimationFrame(render);
         return;
       }
@@ -144,11 +146,22 @@ export function AnimatedShaderBackground() {
       pointer[1] = 1 - Math.min(1, Math.max(0, (event.clientY - rect.top) / rect.height));
     };
     const onVisibilityChange = () => {
-      if (document.visibilityState === 'visible' && !reduceMotion && visible && !frame) frame = requestAnimationFrame(render);
+      if (document.visibilityState === 'visible' && !reduceMotion && visible && !scrolling && !frame) frame = requestAnimationFrame(render);
+    };
+    const onScroll = () => {
+      if (reduceMotion || disposed) return;
+      scrolling = true;
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0;
+      window.clearTimeout(scrollTimer);
+      scrollTimer = window.setTimeout(() => {
+        scrolling = false;
+        if (document.visibilityState === 'visible' && visible && !frame) frame = requestAnimationFrame(render);
+      }, 180);
     };
     const observer = typeof IntersectionObserver === 'function' ? new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;
-      if (visible && !reduceMotion && !frame) frame = requestAnimationFrame(render);
+      if (visible && !reduceMotion && !scrolling && !frame) frame = requestAnimationFrame(render);
       if (!visible && frame) {
         cancelAnimationFrame(frame);
         frame = 0;
@@ -163,6 +176,7 @@ export function AnimatedShaderBackground() {
     const pointerTarget = canvas.parentElement || canvas;
     pointerTarget.addEventListener('pointermove', onPointerMove, { passive: true });
     document.addEventListener('visibilitychange', onVisibilityChange);
+    window.addEventListener('scroll', onScroll, { passive: true });
     resize();
     if (!reduceMotion) frame = requestAnimationFrame(render);
 
@@ -171,9 +185,11 @@ export function AnimatedShaderBackground() {
       if (frame) cancelAnimationFrame(frame);
       observer?.disconnect();
       resizeObserver?.disconnect();
+      window.clearTimeout(scrollTimer);
       if (!resizeObserver) window.removeEventListener('resize', resize);
       pointerTarget.removeEventListener('pointermove', onPointerMove);
       document.removeEventListener('visibilitychange', onVisibilityChange);
+      window.removeEventListener('scroll', onScroll);
       gl.deleteBuffer(buffer);
       gl.deleteProgram(program);
       gl.deleteShader(vertexShader);

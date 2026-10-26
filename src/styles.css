@@ -231,7 +231,13 @@ body{background:#080706;color:#F4E0CD}
 /* Scroll performance improvements */
 html {
   scroll-behavior: auto;
+  overscroll-behavior-y: none;
 }
+
+/* Match the document canvas so macOS/Chromium edge bounce cannot expose a
+   light fallback strip above the mocha page while scrolling at its boundary. */
+html:not([data-theme="light"]) { background: #5B4632; }
+html[data-theme="light"] { background: #f6f1e8; }
 
 .header {
   background: #080706 !important;
@@ -562,9 +568,9 @@ contain-intrinsic-size: none;
   z-index: -1;
   top: 0;
   bottom: 0;
-  left: 50%;
+  left: calc(50% - 50vw);
   width: 100vw;
-  transform: translateX(-50%);
+  transform: none;
   background-color: #080706;
   background-image:
     linear-gradient(90deg, rgba(8, 7, 6, 0.92) 0%, rgba(8, 7, 6, 0.78) 48%, rgba(8, 7, 6, 0.64) 100%),
