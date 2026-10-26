@@ -258,7 +258,7 @@ html {
   filter: none;
 }
 
-/* Browser off-screen sections ko baad mein render karega */
+/* Keep sections paintable while scrolling back through the page. */
 .trust-strip,
 .services,
 .work-section,
@@ -273,8 +273,8 @@ html {
 .about-location,
 .team-roles,
 .team-commitment {
-content-visibility: auto;
-contain-intrinsic-size: auto 720px;
+content-visibility: visible;
+contain-intrinsic-size: none;
 }
 
 /* TellaMind wordmark and monogram */
