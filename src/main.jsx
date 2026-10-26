@@ -23,6 +23,26 @@ const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage.jsx').then((m
 function ScrollAndTitle() {
   const { pathname } = useLocation();
   React.useEffect(() => {
+    let scrollEndTimer;
+    const markScrolling = () => {
+      if (document.documentElement.dataset.scrolling !== 'true') {
+        document.documentElement.dataset.scrolling = 'true';
+      }
+      window.clearTimeout(scrollEndTimer);
+      scrollEndTimer = window.setTimeout(() => {
+        delete document.documentElement.dataset.scrolling;
+      }, 120);
+    };
+
+    window.addEventListener('scroll', markScrolling, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', markScrolling);
+      window.clearTimeout(scrollEndTimer);
+      delete document.documentElement.dataset.scrolling;
+    };
+  }, []);
+
+  React.useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
     const basePath = import.meta.env.BASE_URL.replace(/\/+$/, '');
     const routePath = pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname;

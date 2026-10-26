@@ -1369,8 +1369,31 @@ html:not([data-theme="light"]) .home-page > .process-section {
   background:transparent;
 }
 html:not([data-theme="light"]) .header { background:rgba(43,32,23,.97)!important; border-color:#806044; }
-html:not([data-theme="light"]) .hero-object {
-  filter:drop-shadow(0 28px 60px rgba(46,32,22,.58)) !important;
+/* Avoid re-rasterizing a large blurred shadow around the animated hero SVG. */
+.hero-object,
+.hero-visual:hover .hero-object {
+  filter: none !important;
+  transition: none !important;
+}
+
+/* Let the browser prioritize page content while the user is actively scrolling.
+   Decorative CSS motion resumes at its previous position as soon as scrolling stops. */
+html[data-scrolling="true"] .hero-object,
+html[data-scrolling="true"] .team-core,
+html[data-scrolling="true"] .team-orbit,
+html[data-scrolling="true"] .about-page-art .about-orb,
+html[data-scrolling="true"] .about-page-art .about-orb::before,
+html[data-scrolling="true"] .about-page-art .about-orb::after,
+html[data-scrolling="true"] .about-home-art .about-orb,
+html[data-scrolling="true"] .about-home-art .about-orb::before,
+html[data-scrolling="true"] .about-home-art .about-orb::after,
+html[data-scrolling="true"] .services-ticker-track,
+html[data-scrolling="true"] .work-orbit-ring,
+html[data-scrolling="true"] .services-constellation-orbit,
+html[data-scrolling="true"] .process-journey-ring,
+html[data-scrolling="true"] .contact-hero-orbit-ring {
+  animation-play-state: paused !important;
+  transition-duration: 0s !important;
 }
 html:not([data-theme="light"]) .hero::before {
   background-color:#5B4632;
