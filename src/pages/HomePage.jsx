@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { publicAsset } from '../utils/publicAsset.js';
 import { ArrowDown, ArrowRight, ArrowUpRight, Play, Sparkles } from 'lucide-react';
@@ -15,13 +15,82 @@ import { heroItemVariants, Stagger } from '../components/MotionEffects.jsx';
 import { AnimatedShaderBackground } from '../components/AnimatedShaderBackground.jsx';
 
 function HeroVisual() {
+  const defaultArtworkRef = useRef(null);
+  const lightArtworkRef = useRef(null);
+
+  useEffect(() => {
+    const artworks = [defaultArtworkRef.current, lightArtworkRef.current].filter(Boolean);
+    const visibleArtworks = new Map(artworks.map((artwork) => [artwork, true]));
+    let scrolling = false;
+    let resumeTimer = 0;
+
+    const updateArtworkMotion = () => {
+      artworks.forEach((artwork) => {
+        const paused = !visibleArtworks.get(artwork) || scrolling;
+        try {
+          const svgDocument = artwork.contentDocument;
+          if (!svgDocument) return;
+
+          let scrollStyle = svgDocument.getElementById('tellamind-scroll-motion');
+          if (!scrollStyle) {
+            scrollStyle = svgDocument.createElementNS('http://www.w3.org/2000/svg', 'style');
+            scrollStyle.id = 'tellamind-scroll-motion';
+            scrollStyle.textContent = `
+              :root[data-scroll-paused="true"] *,
+              :root[data-scroll-paused="true"] *::before,
+              :root[data-scroll-paused="true"] *::after {
+                animation-play-state: paused !important;
+                transition-duration: 0s !important;
+              }
+            `;
+            svgDocument.documentElement.append(scrollStyle);
+          }
+          svgDocument.documentElement.setAttribute('data-scroll-paused', String(paused));
+        } catch {
+          // The illustration remains visible if the browser blocks SVG document access.
+        }
+      });
+    };
+
+    const onScroll = () => {
+      scrolling = true;
+      window.clearTimeout(resumeTimer);
+      updateArtworkMotion();
+      resumeTimer = window.setTimeout(() => {
+        scrolling = false;
+        updateArtworkMotion();
+      }, 240);
+    };
+    const onArtworkLoad = () => updateArtworkMotion();
+    const observer = typeof IntersectionObserver === 'function'
+      ? new IntersectionObserver((entries) => {
+        entries.forEach((entry) => visibleArtworks.set(entry.target, entry.isIntersecting));
+        updateArtworkMotion();
+      }, { rootMargin: '80px' })
+      : null;
+
+    artworks.forEach((artwork) => {
+      artwork.addEventListener('load', onArtworkLoad);
+      observer?.observe(artwork);
+    });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    updateArtworkMotion();
+
+    return () => {
+      window.clearTimeout(resumeTimer);
+      window.removeEventListener('scroll', onScroll);
+      artworks.forEach((artwork) => artwork.removeEventListener('load', onArtworkLoad));
+      observer?.disconnect();
+    };
+  }, []);
+
   return <div className="hero-visual">
     <AnimatedShaderBackground />
     <div className="visual-orbit orbit-one" />
     <div className="visual-orbit orbit-two" />
     <div className="visual-glow" />
-    <img className="hero-object hero-object-default" src={publicAsset('tellamind-hero-v3.svg')} alt="Animated cube illustration with orbital paths" />
-    <img className="hero-object hero-object-light" src={publicAsset('tellamind-hero-green-v3.svg')} alt="Animated green cube illustration with orbital paths" />
+    <object ref={defaultArtworkRef} className="hero-object hero-object-default" data={publicAsset('tellamind-hero-v3.svg')} type="image/svg+xml" role="img" aria-label="Animated cube illustration with orbital paths" />
+    <object ref={lightArtworkRef} className="hero-object hero-object-light" data={publicAsset('tellamind-hero-green-v3.svg')} type="image/svg+xml" role="img" aria-label="Animated green cube illustration with orbital paths" />
     <span className="floating-star star-b">✦</span>
   </div>;
 }

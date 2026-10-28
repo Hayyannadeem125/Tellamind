@@ -1375,6 +1375,10 @@ html:not([data-theme="light"]) .header { background:rgba(43,32,23,.97)!important
   filter: none !important;
   transition: none !important;
 }
+.hero-object {
+  aspect-ratio: 900 / 760;
+  object-fit: contain;
+}
 
 /* Let the browser prioritize page content while the user is actively scrolling.
    Decorative CSS motion resumes at its previous position as soon as scrolling stops. */
