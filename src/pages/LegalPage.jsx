@@ -8,11 +8,11 @@ const trackerConfigured = Boolean(import.meta.env.VITE_INQUIRY_WEBHOOK_URL);
 function PrivacyPolicy() {
   return <>
     <h2>Who we are</h2>
-    <p>TellaMind is a Michigan-based technology company serving businesses and creators. For questions about this notice or a privacy request, email <a href="mailto:tellamindwork@gmail.com">tellamindwork@gmail.com</a>.</p>
+    <p>TellaMind is a Michigan-based technology company serving businesses and creators. For questions about this notice or a privacy request, email <a href="mailto:info@tellamind.com">info@tellamind.com</a>.</p>
 
     <h2>Information you provide</h2>
     <p>If you contact us about a project, you may provide your name, email address, business name, service interest, budget range, timeframe, and project description. A service inquiry may also ask for details such as your website, tools, intended users, app or software requirements, and project goals. A Meta Ads inquiry may ask about your campaign objective, Meta account setup, estimated monthly advertising spend, and tracking readiness. Never send ad account passwords or login codes.</p>
-    <p>The Snapchat creator readiness form can ask for your Snapchat username, public profile link, country, Snap Star status, follower count, public posting frequency, and view-time figures you choose to share. Please do not send passwords, login codes, private account credentials, government ID numbers, or unrelated sensitive information.</p>
+    <p>The Snapstar Creator Program form can ask for your Snapchat username, public profile link, country, Snap Star status, follower count, public posting frequency, and view-time figures you choose to share. Please do not send passwords, login codes, private account credentials, government ID numbers, or unrelated sensitive information.</p>
 
     <h2>How we use information</h2>
     <p>We use inquiry information to respond to you, understand the work you are asking about, prepare a proposal, communicate about an active project, and protect or administer our business. We do not use inquiry information for automated decisions, and we do not add people to a marketing list through these forms.</p>
@@ -38,7 +38,7 @@ function PrivacyPolicy() {
     <p>TellaMind is based in the United States. If you contact us from another country, your information may be processed in the United States or another country where a service provider operates. Where required, we use the transfer protections required by applicable law.</p>
 
     <h2>Your choices and privacy requests</h2>
-    <p>You can ask us to access, correct, or delete inquiry information by emailing <a href="mailto:tellamindwork@gmail.com">tellamindwork@gmail.com</a>. Depending on where you live and which laws apply, you may have additional rights, including the right to object to or restrict certain processing, receive a portable copy, or complain to a privacy regulator. We will review and respond to requests as required by applicable law. We may need to verify your identity before acting.</p>
+    <p>You can ask us to access, correct, or delete inquiry information by emailing <a href="mailto:info@tellamind.com">info@tellamind.com</a>. Depending on where you live and which laws apply, you may have additional rights, including the right to object to or restrict certain processing, receive a portable copy, or complain to a privacy regulator. We will review and respond to requests as required by applicable law. We may need to verify your identity before acting.</p>
 
     <h2>Security and changes</h2>
     <p>We use reasonable measures to protect information we handle, but no online service or email transmission can be guaranteed completely secure. We may update this notice when our data practices change.</p>
@@ -73,7 +73,7 @@ function TermsOfService() {
     <p>These website Terms are governed by the laws of Michigan, United States, except where applicable law requires otherwise. Any project agreement may set additional dispute terms. We may update these Terms by posting a revised version here; the date above will change when we do.</p>
 
     <h2>Contact</h2>
-    <p>Questions about these Terms can be sent to <a href="mailto:tellamindwork@gmail.com">tellamindwork@gmail.com</a>.</p>
+    <p>Questions about these Terms can be sent to <a href="mailto:info@tellamind.com">info@tellamind.com</a>.</p>
   </>;
 }
 

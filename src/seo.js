@@ -15,7 +15,7 @@ const pages = {
   },
   '/about': {
     title: 'About TellaMind | Michigan Technology Company',
-    description: 'Learn about TellaMind, a Michigan-based technology company established in 2016 and working with businesses worldwide.',
+    description: 'Learn how TellaMind grew from its 2015 beginnings into a Michigan-based technology partner for businesses worldwide.',
   },
   '/team': {
     title: 'TellaMind Team & Project Roles',
@@ -58,7 +58,7 @@ function cleanPath(pathname) {
   return path === '/' ? '/' : path;
 }
 
-export function getSeoMetadata(pathname, siteUrl = 'https://hayyannadeem125.github.io/Tellamind') {
+export function getSeoMetadata(pathname, siteUrl = 'https://tellamind.com') {
   const path = cleanPath(pathname);
   const serviceMatch = path.match(/^\/services\/([^/]+)$/);
   const projectMatch = path.match(/^\/work\/([^/]+)$/);
@@ -74,7 +74,7 @@ export function getSeoMetadata(pathname, siteUrl = 'https://hayyannadeem125.gith
     name: 'TellaMind',
     url: siteRoot,
     logo: `${siteRoot}tellamind-mark.svg`,
-    email: 'tellamindwork@gmail.com',
+    email: 'info@tellamind.com',
     description: 'Michigan-based technology company building websites, apps, custom software, and AI automation for businesses worldwide.',
     areaServed: ['Michigan, United States', 'Worldwide'],
   }];

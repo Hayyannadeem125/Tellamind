@@ -31,15 +31,15 @@ const workSteps = [
 export function AboutPage() {
   return <>
     <section className="about-page-hero section-wrap">
-      <div className="about-art about-page-art" aria-hidden="true">
-        <div className="about-grid-lines" />
-        <div className="about-orb"><span /><span /><span /></div>
+      <div className="about-art about-page-art practical-art" role="img" aria-label="TellaMind turns business challenges into useful technology">
+        <div className="practical-art-window"><span>THE PRACTICAL APPROACH</span><b>Start with the<br/><em>real challenge.</em></b><div className="practical-art-rule"/><div className="practical-art-result"><i>✓</i><span><b>Useful technology</b><small>Shaped around your business</small></span></div></div>
+        <div className="practical-art-caption">PEOPLE FIRST&nbsp;&nbsp; CLEAR SCOPE&nbsp;&nbsp; USEFUL WORK</div>
       </div>
       <div className="about-page-copy">
         <Eyebrow>ABOUT TELLAMIND</Eyebrow>
         <h1>Technology that helps businesses <em>move forward.</em></h1>
-        <span className="about-established">Established in 2016 <i /> Michigan, USA</span>
-        <p>TellaMind exists to make useful technology more practical and good digital products easier to access. We help people and businesses turn an idea or challenge into a clear next step.</p>
+        <span className="about-established">Established in 2015 <i /> Michigan, USA</span>
+        <p>Since the beginning, TellaMind has focused on making useful technology more practical and good digital products easier to access. We help people and businesses turn an idea or challenge into a clear next step.</p>
         <p>Based in Michigan, USA, we work with startups, shops, clinics, real estate teams, creators, and growing businesses worldwide.</p>
         <Link className="button button-dark" to="/contact">Start a project <ArrowRight size={15} /></Link>
       </div>
@@ -47,17 +47,18 @@ export function AboutPage() {
 
     <section className="about-story section-wrap">
       <div className="about-story-copy">
-        <Eyebrow>WHY TELLAMIND EXISTS</Eyebrow>
-        <h2>Good technology should be easier to <em>put to work.</em></h2>
-        <p>Technology can help businesses serve customers, manage everyday work, and build an online presence. But choosing the right tools and putting them to work can feel harder than it needs to be.</p>
-        <p>Since 2016, TellaMind’s purpose has been to bring practical technology into reach through useful products and services. We start by understanding the problem, then help find and implement a solution that fits the agreed goal and scope.</p>
+        <Eyebrow>OUR STORY · SINCE 2015</Eyebrow>
+        <h2>Built through challenges.<br /><em>Focused on useful progress.</em></h2>
+        <p>TellaMind was established in 2015 with a simple belief: technology should make work clearer and help businesses move forward. The early journey brought challenges, detours, and plenty of lessons. We kept learning, adapting, and finding better ways to turn real needs into practical solutions.</p>
+        <p>That experience shaped how we work today. We bring together websites, mobile apps, custom software, AI agents, workflow automation, and digital growth support. Every project starts by understanding the business goal, then agreeing on a clear and sensible path to deliver it.</p>
+        <p>Now based in Michigan and working with businesses worldwide, TellaMind has grown into a technology partner for teams that need a stronger online presence, better systems, or less repetitive work. We’re proud of how far the company has come and we keep building toward what comes next.</p>
       </div>
       <aside className="about-founder-card" aria-label="TellaMind founder">
-        <div className="about-founder-top"><span className="about-founder-mark"><img src={publicAsset('tellamind-mark.svg')} alt="TellaMind logo" /></span><span className="about-founder-kicker">TELLAMIND · SINCE 2016</span></div>
+        <div className="about-founder-top"><span className="about-founder-mark"><img src={publicAsset('tellamind-mark.svg')} alt="TellaMind logo" /></span><span className="about-founder-kicker">TELLAMIND · SINCE 2015</span></div>
         <div className="about-founder-rule" />
         <p className="about-founder-label">FOUNDER &amp; CEO</p>
         <h3>Hayyan Nadeem</h3>
-        <p className="about-founder-note">Helping make technology practical through useful digital products and services.</p>
+        <p className="about-founder-note">From business websites and mobile apps to custom software, AI agents, and workflow automation, TellaMind builds tools around real business needs. We focus on clear scope and useful features that help teams serve customers, reduce repetitive work, and move forward.</p>
       </aside>
     </section>
 

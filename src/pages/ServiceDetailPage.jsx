@@ -80,8 +80,11 @@ export function ServiceDetailPage() {
       <div className="meta-ads-policy-links"><span>Campaigns remain subject to Meta review and advertising policies.</span><a href="https://transparency.meta.com/policies/ad-standards/" target="_blank" rel="noreferrer">Meta Advertising Standards <ArrowUpRight size={13}/></a><a href="https://www.facebook.com/business/ads/facebook-instagram-reels-ads" target="_blank" rel="noreferrer">Meta Reels ad guidance <ArrowUpRight size={13}/></a></div>
     </section>}
 
-    {hasDedicatedInquiry && <ServiceInquiryForm serviceSlug={service.slug}/>}
+    {hasDedicatedInquiry && <div className="service-inquiry-cta-layout">
+      <ServiceInquiryForm serviceSlug={service.slug}/>
+      <CTASection className="service-inquiry-side-cta" title={<>Let’s talk about <em>{service.shortTitle.toLowerCase()}.</em></>} copy="We will learn about your goals and help define a sensible scope."/>
+    </div>}
     <section className="service-process-strip"><div className="section-wrap"><Eyebrow>A PRACTICAL START</Eyebrow><div className="mini-process"><span>Understand the goal</span><i>→</i><span>Agree on scope</span><i>→</i><span>Build and review</span><i>→</i><span>Launch or hand off</span></div></div></section>
-    <CTASection title={<>Let’s talk about <em>{service.shortTitle.toLowerCase()}.</em></>} copy="We will learn about your goals and help define a sensible scope."/>
+    {!hasDedicatedInquiry && <CTASection title={<>Let’s talk about <em>{service.shortTitle.toLowerCase()}.</em></>} copy="We will learn about your goals and help define a sensible scope."/>}
   </>;
 }

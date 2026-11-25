@@ -1322,29 +1322,45 @@ html[data-theme="light"] .contact-copy h2 em { color:#5B4632; }
 html[data-theme="light"] .service-card,
 html[data-theme="light"] .about-capability-card,
 html[data-theme="light"] .about-workflow-card {
-  border-color:#CBB99F;
-  background:linear-gradient(145deg,#FFF9EF,#F4D9A0);
-  box-shadow:0 14px 34px #5B46321A;
+  border-color:#DED4C5;
+  background:linear-gradient(145deg,#FFFDF9 0%,#F5F0E8 100%);
+  box-shadow:0 10px 26px rgba(56,42,22,.07);
 }
 html[data-theme="light"] .service-card-link:hover .service-card,
 html[data-theme="light"] .service-card-link:focus-visible .service-card {
-  border-color:#C8792C;
-  background:linear-gradient(145deg,#FFF5E5,#F4D9A0);
-  box-shadow:0 18px 38px #C8792C26;
+  border-color:#B9A47C;
+  background:linear-gradient(145deg,#FFFDF9 0%,#F1EBDD 100%);
+  box-shadow:0 14px 30px rgba(56,42,22,.11);
 }
 html[data-theme="light"] .service-card h3,
 html[data-theme="light"] .about-capability-card h3,
-html[data-theme="light"] .about-workflow-card h3 { color:#5B4632; }
+html[data-theme="light"] .about-workflow-card h3 { color:#4A3928; }
 html[data-theme="light"] .service-icon {
-  border:1px solid #C8792C;
-  background:linear-gradient(145deg,#5B4632,#463522);
-  color:#F4D9A0;
+  border:1px solid #D8CBB5;
+  background:linear-gradient(145deg,#F6F0E5,#EDE4D5);
+  color:#765D37;
+}
+html[data-theme="light"] .service-icon-image,
+html[data-theme="light"] .service-icon-image.service-icon-snapchat,
+html[data-theme="light"] .service-icon-image.service-icon-seo,
+html[data-theme="light"] .service-icon-image.service-icon-website,
+html[data-theme="light"] .service-icon-ai,
+html[data-theme="light"] .service-icon-seo,
+html[data-theme="light"] .service-icon-website {
+  border-color:#D8CBB5;
+  background-color:#F3EDE3;
+}
+html[data-theme="light"] .service-icon-snapchat {
+  background-color:#F5EDCF;
 }
 html[data-theme="light"] .tag-list span {
-  border-color:#C8792C;
-  background:#F4D9A0;
-  color:#5B4632;
+  border-color:#E1D8CA;
+  background:#F2EDE4;
+  color:#665A48;
 }
+html[data-theme="light"] .service-card .card-arrow { color:#8A7046; }
+html[data-theme="light"] .service-card-link:hover .card-arrow,
+html[data-theme="light"] .service-card-link:focus-visible .card-arrow { color:#6F5733; }
 
 /* Mocha headlines and Champagne Gold accents for the light palette. */
 html[data-theme="light"] .hero h1,
@@ -1407,4 +1423,37 @@ html[data-theme="light"] .about-page-copy h1 em {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent !important;
+}
+
+/* Use the same lifted mocha brown across dark-theme card and form surfaces. */
+html:not([data-theme="light"]) .service-card,
+html:not([data-theme="light"]) .about-capability-card,
+html:not([data-theme="light"]) .about-workflow-card,
+html:not([data-theme="light"]) .team-role-card,
+html:not([data-theme="light"]) .team-member-card,
+html:not([data-theme="light"]) .about-founder-card,
+html:not([data-theme="light"]) .project-demo-panel,
+html:not([data-theme="light"]) .listing-demo-card,
+html:not([data-theme="light"]) .project-demonstrates > div,
+html:not([data-theme="light"]) .deliverable-card,
+html:not([data-theme="light"]) .scope-card,
+html:not([data-theme="light"]) .principle-grid article,
+html:not([data-theme="light"]) .contact-specialized,
+html:not([data-theme="light"]) .trust-item,
+html:not([data-theme="light"]) .contact-form,
+html:not([data-theme="light"]) .service-inquiry-form,
+html:not([data-theme="light"]) .snap-intake-form,
+html:not([data-theme="light"]) .pricing-panel,
+html:not([data-theme="light"]) .service-note,
+html:not([data-theme="light"]) .meta-ads-pillars article,
+html:not([data-theme="light"]) .social-growth-grid article,
+html:not([data-theme="light"]) .contact-start-card,
+html:not([data-theme="light"]) .team-focus-panel,
+html:not([data-theme="light"]) .practical-art-window,
+html:not([data-theme="light"]) .brief-window,
+html:not([data-theme="light"]) .process-timeline-step,
+html:not([data-theme="light"]) .service-pillar {
+  background: linear-gradient(145deg, #4A3626 0%, #38271C 100%);
+  border-color: #896A49;
+  box-shadow: 0 15px 34px rgba(25, 16, 9, .24);
 }

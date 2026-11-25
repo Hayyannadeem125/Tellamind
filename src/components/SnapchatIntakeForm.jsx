@@ -12,7 +12,7 @@ export function SnapchatIntakeForm() {
     const form = event.currentTarget;
     const data = new FormData(form);
     data.set('service', 'Snap Star & Snapchat Creator Support');
-    data.set('subject', 'New Snapchat creator readiness inquiry');
+    data.set('subject', 'New Snapstar Creator Program inquiry');
     setState({ status: 'sending', message: 'Preparing your readiness request…' });
 
     if (endpoint) {
@@ -21,7 +21,7 @@ export function SnapchatIntakeForm() {
         form.reset();
         setState({ status: 'success', message: 'Thanks. Your Snapchat readiness request has been sent to TellaMind.' });
       } catch {
-        setState({ status: 'error', message: 'We could not send this form. Please email tellamindwork@gmail.com instead.' });
+        setState({ status: 'error', message: 'We could not send this form. Please email info@tellamind.com instead.' });
       }
       return;
     }
@@ -37,7 +37,7 @@ export function SnapchatIntakeForm() {
       ['Additional context', data.get('notes')],
     ];
     const body = encodeURIComponent(fields.map(([label, value]) => `${label}: ${value || 'Not provided'}`).join('\n'));
-    window.location.href = `mailto:tellamindwork@gmail.com?subject=${encodeURIComponent('Snapchat creator readiness request')}&body=${body}`;
+    window.location.href = `mailto:info@tellamind.com?subject=${encodeURIComponent('Snapstar Creator Program request')}&body=${body}`;
     setState({ status: 'fallback', message: 'Your email app should open with your readiness request. Review it and press Send; nothing is submitted to Snapchat.' });
   }
 

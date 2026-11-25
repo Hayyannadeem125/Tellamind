@@ -19,7 +19,7 @@ export function ProcessPage() {
     <section className="page-hero section-wrap process-page-hero">
       <div className="process-page-copy">
         <Eyebrow>HOW WE WORK</Eyebrow>
-        <h1>A clear path from <em>idea to launch.</em></h1>
+        <h1>A clear path from <em>idea to launch</em></h1>
         <p>You’ll know what we’re building, who needs to do what, when feedback is needed, and what happens after launch.</p>
         <Link className="button button-dark" to="/contact">Start a project <ArrowRight size={15}/></Link>
       </div>

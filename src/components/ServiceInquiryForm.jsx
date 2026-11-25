@@ -147,7 +147,7 @@ export function ServiceInquiryForm({ serviceSlug }) {
         form.reset();
         setState({ status: 'success', message: 'Thanks. Your project inquiry has been sent to TellaMind.' });
       } catch {
-        setState({ status: 'error', message: 'We could not send this form. Please email tellamindwork@gmail.com instead.' });
+        setState({ status: 'error', message: 'We could not send this form. Please email info@tellamind.com instead.' });
       }
       return;
     }
@@ -155,7 +155,7 @@ export function ServiceInquiryForm({ serviceSlug }) {
     const labels = Object.fromEntries(config.fields.map(field => [field.name, field.label]));
     const entries = [['Service', service.title], ['Name', data.get('name')], ['Email', data.get('email')], ['Business', data.get('company') || 'Not provided'], ...Array.from(data.entries()).filter(([key]) => labels[key]).map(([key, value]) => [labels[key], value]), ['Timeframe', data.get('timeframe') || 'Not provided']];
     const body = encodeURIComponent(entries.map(([label, value]) => `${label}: ${value || 'Not provided'}`).join('\n'));
-    window.location.href = `mailto:tellamindwork@gmail.com?subject=${encodeURIComponent(`TellaMind inquiry: ${service.title}`)}&body=${body}`;
+    window.location.href = `mailto:info@tellamind.com?subject=${encodeURIComponent(`TellaMind inquiry: ${service.title}`)}&body=${body}`;
     setState({ status: 'fallback', message: 'Your email app should open with the inquiry. Review it and press Send to contact TellaMind.' });
   }
 

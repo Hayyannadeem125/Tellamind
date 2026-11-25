@@ -21,13 +21,13 @@ export function ContactForm() {
         form.reset();
         setState({ status: 'success', message: 'Thanks. Your inquiry has been sent to TellaMind.' });
       } catch {
-        setState({ status: 'error', message: 'We could not send this form. Please email tellamindwork@gmail.com instead.' });
+        setState({ status: 'error', message: 'We could not send this form. Please email info@tellamind.com instead.' });
       }
       return;
     }
     const body = encodeURIComponent(`Name: ${data.get('name')}\nEmail: ${data.get('email')}\nBusiness: ${data.get('company') || 'Not provided'}\nService: ${data.get('service')}\nBudget: ${data.get('budget') || 'Not provided'}\nTimeframe: ${data.get('timeframe') || 'Not provided'}\n\nProject details:\n${data.get('message')}`);
-    window.location.href = `mailto:tellamindwork@gmail.com?subject=${encodeURIComponent(`TellaMind project inquiry: ${data.get('service')}`)}&body=${body}`;
-    setState({ status: 'fallback', message: 'Your email app should open with the inquiry ready to review and send. If it does not, email tellamindwork@gmail.com.' });
+    window.location.href = `mailto:info@tellamind.com?subject=${encodeURIComponent(`TellaMind project inquiry: ${data.get('service')}`)}&body=${body}`;
+    setState({ status: 'fallback', message: 'Your email app should open with the inquiry ready to review and send. If it does not, email info@tellamind.com.' });
   }
   return <form className="contact-form" onSubmit={handleSubmit}>
     <input type="text" name="_gotcha" hidden tabIndex={-1} autoComplete="off" />

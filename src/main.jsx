@@ -47,7 +47,7 @@ function ScrollAndTitle() {
     const basePath = import.meta.env.BASE_URL.replace(/\/+$/, '');
     const routePath = pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname;
     const configuredSiteUrl = import.meta.env.VITE_SITE_URL?.replace(/\/+$/, '');
-    const siteUrl = configuredSiteUrl || `${window.location.origin}${basePath}`;
+    const siteUrl = configuredSiteUrl || 'https://tellamind.com';
     const { title, description, canonical: canonicalUrl, schema } = getSeoMetadata(routePath, siteUrl);
     document.title = title;
     let meta = document.querySelector('meta[name="description"]');

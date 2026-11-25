@@ -1,33 +1,15 @@
 import React from 'react';
-import { motion, useReducedMotion } from 'motion/react';
-import { TellaMindMark } from './TellaMindMark.jsx';
+import { ArrowRight, Check, MessageSquareText } from 'lucide-react';
 
 export function ContactHeroOrbit() {
-  const reduceMotion = useReducedMotion();
-
-  return <div className="contact-hero-orbit" aria-hidden="true">
-    <div className="contact-hero-orbit-glow" />
-    <motion.div
-      className="contact-hero-orbit-ring contact-hero-orbit-ring-one"
-      animate={reduceMotion ? undefined : { rotate: 360 }}
-      transition={reduceMotion ? undefined : { duration: 38, ease: 'linear', repeat: Infinity }}
-    />
-    <motion.div
-      className="contact-hero-orbit-ring contact-hero-orbit-ring-two"
-      animate={reduceMotion ? undefined : { rotate: -360 }}
-      transition={reduceMotion ? undefined : { duration: 52, ease: 'linear', repeat: Infinity }}
-    />
-    <motion.div
-      className="contact-hero-orbit-core"
-      initial={false}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0 }}
-    >
-      <TellaMindMark className="contact-hero-orbit-mark" />
-      <span>LET’S TALK</span>
-      <small>Michigan · Worldwide</small>
-    </motion.div>
-    <span className="contact-hero-orbit-dot contact-hero-orbit-dot-one" />
-    <span className="contact-hero-orbit-dot contact-hero-orbit-dot-two" />
-  </div>;
+  return <aside className="contact-hero-orbit contact-start-card" aria-label="What happens after you contact TellaMind">
+    <div className="contact-start-top"><span className="contact-start-icon"><MessageSquareText size={19}/></span><span>YOUR PROJECT, STARTING CLEARLY</span></div>
+    <h2>A good first step<br/><em>starts with a conversation.</em></h2>
+    <div className="contact-start-points">
+      <p><Check size={15}/> Tell us what you want to improve</p>
+      <p><Check size={15}/> Get a practical recommendation</p>
+      <p><Check size={15}/> Agree on scope and next steps</p>
+    </div>
+    <div className="contact-start-foot"><span>NO PRESSURE. JUST A CLEAR START.</span><ArrowRight size={17}/></div>
+  </aside>;
 }

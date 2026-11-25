@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 
-// GitHub Pages publishes this repo under /Tellamind/; local development stays at /.
+// The custom domain serves the site at the root path in production.
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS === 'true' ? '/Tellamind/' : '/',
+  base: '/',
 });

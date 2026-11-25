@@ -24,10 +24,10 @@ export function ContactPage() {
           <h2>Choose how you’d like to <em>contact us.</em></h2>
           <p>Email us, request a meeting, or use the form. We’re based in Michigan and work worldwide.</p>
           <div className="contact-links">
-            <a href="mailto:tellamindwork@gmail.com"><span><Mail size={16}/></span> tellamindwork@gmail.com <ArrowUpRight size={14}/></a>
+            <a href="mailto:info@tellamind.com"><span><Mail size={16}/></span> info@tellamind.com <ArrowUpRight size={14}/></a>
             {bookingUrl
               ? <a href={bookingUrl} target="_blank" rel="noreferrer"><span><CalendarDays size={16}/></span> Choose a meeting time <ArrowUpRight size={14}/></a>
-              : <a href="mailto:tellamindwork@gmail.com?subject=Book%20a%20TellaMind%20meeting"><span><CalendarDays size={16}/></span> Request a meeting time <ArrowUpRight size={14}/></a>}
+              : <a href="mailto:info@tellamind.com?subject=Book%20a%20TellaMind%20meeting"><span><CalendarDays size={16}/></span> Request a meeting time <ArrowUpRight size={14}/></a>}
           </div>
           <div className="timezone-note">Meeting times are confirmed with your local time zone.</div>
           <nav className="contact-specialized" aria-label="Service-specific inquiry forms">
@@ -48,7 +48,7 @@ export function ContactPage() {
     </section>
     <section className="contact-alternate section-wrap">
       <div><b>Not ready to fill out a form?</b><p>Email us with a few lines about the project and we will take it from there.</p></div>
-      <a href="mailto:tellamindwork@gmail.com">Send an email <ArrowUpRight size={14}/></a>
+      <a href="mailto:info@tellamind.com">Send an email <ArrowUpRight size={14}/></a>
     </section>
   </>;
 }

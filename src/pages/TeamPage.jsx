@@ -4,7 +4,6 @@ import { ArrowRight } from 'lucide-react';
 import { Eyebrow, SectionHeading } from '../components/SectionHeading.jsx';
 import { CTASection } from '../components/CTASection.jsx';
 import { TeamMembers } from '../components/TeamMembers.jsx';
-import { publicAsset } from '../utils/publicAsset.js';
 import { TellaMindMark } from '../components/TellaMindMark.jsx';
 import { motion } from 'motion/react';
 import { Stagger, staggerItemVariants } from '../components/MotionEffects.jsx';
@@ -20,7 +19,11 @@ export function TeamPage() {
   return <>
     <section className="team-hero section-wrap">
       <div className="team-hero-copy"><Eyebrow>THE PEOPLE BEHIND THE WORK</Eyebrow><h1>A focused team for <em>your next step.</em></h1><p>TellaMind brings the right mix of product thinking, design, engineering, and digital growth around each project. You get a clear point of contact and a team shaped to fit the work.</p><Link className="button button-dark" to="/contact">Start a project <ArrowRight size={15}/></Link></div>
-      <div className="team-hero-art" aria-hidden="true"><div className="team-orbit team-orbit-one"/><div className="team-orbit team-orbit-two"/><div className="team-core"><img src={publicAsset('tellamind-mark.svg')} alt=""/><span>TECHNOLOGY COMPANY</span></div><i className="team-node team-node-one"/><i className="team-node team-node-two"/><i className="team-node team-node-three"/><i className="team-node team-node-four"/></div>
+      <div className="team-hero-art team-focus-panel" role="img" aria-label="TellaMind brings project skills together around your goals">
+        <div className="team-focus-top"><span>BUILT AROUND YOUR GOAL</span><TellaMindMark/></div>
+        <div className="team-focus-main"><span className="team-focus-kicker">ONE CLEAR POINT OF CONTACT</span><b>The right skills.<br/><em>One shared direction.</em></b><p>Strategy, design, engineering, and AI working toward the same outcome.</p></div>
+        <div className="team-focus-tags"><span>Strategy</span><span>Design</span><span>Engineering</span><span>AI &amp; automation</span></div>
+      </div>
     </section>
     <TeamMembers/>
     <section className="team-roles"><div className="section-wrap"><SectionHeading kicker="HOW WE WORK TOGETHER" title={<>The right skills.<br/><em>One clear direction.</em></>} copy="Project roles are assembled around the agreed scope. These are the disciplines clients can expect us to bring into the conversation."/><Stagger className="team-role-grid">{roles.map(({ title, text }) => <motion.article variants={staggerItemVariants} className="team-role-card" key={title}><div className="team-role-card-top"><span className="team-role-icon"><TellaMindMark/></span></div><h2>{title}</h2><p>{text}</p></motion.article>)}</Stagger><p className="team-transparency">These cards describe the skills assembled for projects. Confirmed member profiles appear above once published by the TellaMind team.</p></div></section>
