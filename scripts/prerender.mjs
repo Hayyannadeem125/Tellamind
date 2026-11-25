@@ -15,7 +15,7 @@ const replaceMeta = (html, attribute, value, content) => {
   return pattern.test(html) ? html.replace(pattern, tag) : html.replace('</head>', `    ${tag}\n  </head>`);
 };
 const template = await readFile(path.join(outputDir, 'index.html'), 'utf8');
-const siteUrl = (process.env.VITE_SITE_URL || 'https://hayyannadeem125.github.io/Tellamind').replace(/\/+$/, '');
+const siteUrl = (process.env.VITE_SITE_URL || 'https://tellamind.com').replace(/\/+$/, '');
 
 for (const route of prerenderPaths) {
   const metadata = getSeoMetadata(route, siteUrl);
@@ -29,11 +29,13 @@ for (const route of prerenderPaths) {
   html = replaceMeta(html, 'property', 'og:url', metadata.canonical);
   html = replaceMeta(html, 'name', 'twitter:title', metadata.title);
   html = replaceMeta(html, 'name', 'twitter:description', metadata.description);
-  const headTags = [
-    `<link rel="canonical" href="${escapeAttribute(metadata.canonical)}" />`,
-    `<script id="tellamind-structured-data" type="application/ld+json">${JSON.stringify(metadata.schema).replaceAll('<', '\\u003c')}</script>`,
-  ].join('\n    ');
-  html = html.replace('</head>', `    ${headTags}\n  </head>`);
+  const canonicalTag = `<link rel="canonical" href="${escapeAttribute(metadata.canonical)}" />`;
+  const canonicalPattern = /<link\s+rel="canonical"\s+href="[^"]*"\s*\/>/;
+  html = canonicalPattern.test(html)
+    ? html.replace(canonicalPattern, canonicalTag)
+    : html.replace('</head>', `    ${canonicalTag}\n  </head>`);
+  const structuredDataTag = `<script id="tellamind-structured-data" type="application/ld+json">${JSON.stringify(metadata.schema).replaceAll('<', '\\u003c')}</script>`;
+  html = html.replace('</head>', `    ${structuredDataTag}\n  </head>`);
   const relativePath = route === '/' ? 'index.html' : path.join(route.replace(/^\/+|\/+$/g, ''), 'index.html');
   const destination = path.join(outputDir, relativePath);
   await mkdir(path.dirname(destination), { recursive: true });
