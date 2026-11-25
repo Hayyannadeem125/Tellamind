@@ -2130,3 +2130,14 @@ html[data-theme="light"] .project-grid .project-art--image {
 .practical-art-caption > span {
   display: none !important;
 }
+
+/* Keep full-bleed section backgrounds and decorative artwork from widening
+   the document on narrow screens (which creates a sideways-scroll gutter). */
+@media (max-width: 740px) {
+  html,
+  body,
+  #root {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+}
