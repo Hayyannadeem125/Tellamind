@@ -2,8 +2,8 @@ import { projectSlug, serviceSlug } from './data.js';
 
 const pages = {
   '/': {
-    title: 'Web, App & Custom Software Development | TellaMind',
-    description: 'TellaMind is a Michigan-based technology company building business websites, mobile apps, custom software, and AI automation for teams worldwide.',
+    title: 'TellaMind | Websites, Apps, Custom Software & AI Automation',
+    description: 'TellaMind is a Michigan-based technology company building business websites, mobile apps, custom software, AI agents, and workflow automation for teams worldwide.',
   },
   '/services': {
     title: 'Website, App, Software & Digital Services | TellaMind',
@@ -76,6 +76,14 @@ export function getSeoMetadata(pathname, siteUrl = 'https://tellamind.com') {
     logo: `${siteRoot}tellamind-mark.svg`,
     email: 'info@tellamind.com',
     description: 'Michigan-based technology company building websites, apps, custom software, and AI automation for businesses worldwide.',
+    foundingDate: '2015',
+    sameAs: ['https://www.instagram.com/tellamindtech/'],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'business inquiries',
+      email: 'info@tellamind.com',
+      availableLanguage: ['English'],
+    },
     areaServed: ['Michigan, United States', 'Worldwide'],
   }];
   if (path === '/') graph.push({
