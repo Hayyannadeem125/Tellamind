@@ -4,8 +4,8 @@ import { ArrowRight } from 'lucide-react';
 import { Logo } from './Navbar.jsx';
 
 const socialLinks = [
-  { label: 'LinkedIn', url: import.meta.env.VITE_LINKEDIN_URL, mark: 'linkedin' },
-  { label: 'Instagram', url: import.meta.env.VITE_INSTAGRAM_URL, mark: 'instagram' },
+  { label: 'LinkedIn', url: import.meta.env.VITE_LINKEDIN_URL || 'https://www.linkedin.com/in/hayyan-nadeem-5b4958245', mark: 'linkedin' },
+  { label: 'Instagram', url: import.meta.env.VITE_INSTAGRAM_URL || 'https://www.instagram.com/tellamindtech/', mark: 'instagram' },
   { label: 'Facebook', url: import.meta.env.VITE_FACEBOOK_URL, mark: 'facebook' },
 ];
 
