@@ -1425,6 +1425,31 @@ html[data-theme="light"] .about-page-copy h1 em {
   -webkit-text-fill-color: transparent !important;
 }
 
+/* Match service cards to the warm FAQ surface in light mode. */
+html[data-theme="light"] .service-card {
+  background: linear-gradient(115deg, #f2e9dc 0%, #e9dcc9 100%);
+  border-color: #cfc0a8;
+  box-shadow: 0 10px 26px rgba(56, 42, 22, .08), inset 0 1px rgba(255, 255, 255, .38);
+}
+html[data-theme="light"] .service-card-link:hover .service-card,
+html[data-theme="light"] .service-card-link:focus-visible .service-card {
+  background: linear-gradient(115deg, #f5eddf 0%, #e5d4ba 100%);
+  border-color: #ad8a50;
+  box-shadow: 0 14px 30px rgba(56, 42, 22, .14), inset 0 1px rgba(255, 255, 255, .42);
+}
+html[data-theme="light"] .service-card h3 { color: #292218; }
+html[data-theme="light"] .service-card > p { color: #625747; }
+html[data-theme="light"] .service-card .service-icon {
+  background: linear-gradient(145deg, #f8f0e3, #e7d7bd);
+  border-color: #c9b28a;
+  color: #805d22;
+}
+html[data-theme="light"] .service-card .tag-list span {
+  background: rgba(255, 253, 248, .62);
+  border-color: #cfc0a8;
+  color: #625747;
+}
+
 /* Use the same lifted mocha brown across dark-theme card and form surfaces. */
 html:not([data-theme="light"]) .service-card,
 html:not([data-theme="light"]) .about-capability-card,
